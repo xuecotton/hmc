@@ -23,7 +23,8 @@ Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
 
 
-
+// 注册插件
+// Vue.use(router);
 
 // 使用mint-ui 
 Vue.use(MintUI)
