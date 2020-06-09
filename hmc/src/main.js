@@ -4,6 +4,12 @@ import router from './router'
 import store from './store'
 import axios from 'axios'
 import qs from 'qs'
+//引入mintui中的轮播图组件
+import { Swipe, SwipeItem } from 'mint-ui';
+
+Vue.component(Swipe.name, Swipe);
+Vue.component(SwipeItem.name, SwipeItem);
+
 
 axios.defaults.baseURL='http://127.0.0.1:3000'
 Vue.prototype.axios=axios;

@@ -6,7 +6,17 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
-    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="../src/assets/reset.css">
+    <style>
+      *{margin: 0;padding: 0;}
+      .mint-swipe-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 90% !important;
+    top: 50%;
+    transform: translateX(-50%);
+}
+    </style>
   </head>
   <body>
     <noscript>
