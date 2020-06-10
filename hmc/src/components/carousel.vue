@@ -3,10 +3,10 @@
         <!-- mintui中的swipe轮播图插件 -->
         <mt-swipe :auto='4000' class="carousel">
             <mt-swipe-item>
-                <img src="../assets/houseimg/户外阳光.jpg" alt="">
+                <img src="../assets/houseimg/房间.jpg" alt="">
             </mt-swipe-item>
             <mt-swipe-item>
-                <img src="../assets/houseimg/庭院大房.jpg" alt="">
+                <img src="../assets/houseimg/房间6.jpg" alt="">
             </mt-swipe-item>
         </mt-swipe>
     </div>

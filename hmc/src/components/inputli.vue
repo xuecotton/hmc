@@ -8,7 +8,11 @@
             <div class="mid">
                 <div>
                     <input type="date" value="入住日期">
-                    <!-- <mt-datatime-picker ref="picker" type="date"></mt-datatime-picker> -->
+                    <!-- <mt-datetime-picker
+                        ref="picker"
+                        type="time"
+                        v-model="pickerValue">
+                    </mt-datetime-picker> -->
                 </div>
                 <div><input type="date" value="入住日期"></div>
             </div>
@@ -21,21 +25,37 @@
         </div>
     </div>
 </template>
+
+
+
 <script>
+// 引入picker
+// import { DatetimePicker } from 'mint-ui';
 
 export default{
     name:'inputli',
+    components:{
+        
+    },
     methods: {
       openPicker() {
         this.$refs.picker.open();
       }
+    },
+    data(){
+        return{
+            dateval:""
+        }
     }
 }
 </script>
+
+
+
 <style scoped>
     /* 输入框外部样式 */
     .inputall{width:100%;
-    background-image: linear-gradient(to top,rgba(255,255,255,1),rgba(255,255,255,0.01));
+    background-image: linear-gradient(to top,rgba(255,255,255,1),rgba(255,255,255,0.05));
     height: 250px;position: relative;top: -130px;overflow:hidden}
     /* 包裹区域样式 */
     .inputall>div{width: 90%;height: 200px;
