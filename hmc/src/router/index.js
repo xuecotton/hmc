@@ -4,11 +4,20 @@ import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
-  const routes = [
+
+import Articles from '../components/articles.vue'
+
+
+const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home
+  },
+	
+  {
+    path: '/articles',
+    component : Articles
   },
   {
     path: '/about',
@@ -21,6 +30,8 @@ Vue.use(VueRouter)
 ]
 
 const router = new VueRouter({
+  mode: 'history',
+  base: process.env.BASE_URL,
   routes
 })
 

@@ -5,7 +5,10 @@ import store from './store'
 import axios from 'axios'
 import qs from 'qs'
 
-axios.defaults.baseURL='http://127.0.0.1:3000'
+//引入重置样式 
+import '../src/assets/styles/reset.css'
+
+axios.defaults.baseURL='http://127.0.0.1:3000';
 Vue.prototype.axios=axios;
 Vue.prototype.qs=qs;
 Vue.config.productionTip = false
