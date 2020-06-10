@@ -8,6 +8,42 @@
       </span>
     </div>
     <!-- 顶部顶部导航及头像开始 -->
+    <!-- 轮播图 -->
+    <div id='carousel'>
+      <mt-swipe id="carousel_list"  :auto="3000" continuous showIndicators>
+      <mt-swipe-item id="carousel_item"><img src="../assets/images/swipe01.jpg" alt=""></mt-swipe-item>
+      <mt-swipe-item id="carousel_item"><img src="../assets/images/swipe02.jpg" alt=""></mt-swipe-item>
+      <mt-swipe-item id="carousel_item"><img src="../assets/images/swipe03.jpg" alt=""></mt-swipe-item>
+      <mt-swipe-item id="carousel_item"><img src="../assets/images/swipe04.jpg" alt=""></mt-swipe-item>
+    </mt-swipe>
+    </div>
+    <!-- 轮播图结束 -->
+    <!-- 中间导航栏 -->
+    <div id="navbar">
+      <ul class="bar_list">
+        <li class="bitem">精选<span class='select'></span></li>
+        <li class="bitem">收藏热榜<span class='select'></span></li>
+        <li class="bitem">亲子房<span class='select'></span></li>
+      </ul>
+    </div>
+    <!-- 瀑布流 -->
+    <div class="waterfall">
+      <div class="box">
+        <div class="box_item">
+          <img src="../assets/images/fall1.jpg" alt="">
+          <div class="intr">
+            <p class="address">地址</p>
+            <p calss='title'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, quasi? Minima quos inventor</p>
+            <p class='author'>桃白白</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+
+
+
 
   </div>
 </template>
@@ -25,7 +61,7 @@
    margin-left: 15px;
  }
  #citys{
-   padding:15px 0px 0 5px;
+   padding:15px 5px 0px 5px;
    display: inline-block;
    width: 25px;
    position: relative;
@@ -34,8 +70,8 @@
  #citys>span{
    content:'';
    background-color: #000;
-   width: 5px;
-   height: 5px;
+   width: 6px;
+   height: 6px;
    position: absolute;
    bottom: -2.5px;
    right: -3px;
@@ -59,5 +95,80 @@
  .avatar::before{
    content:''
  }
+
+ /* 轮播图 */
+ 
+#carousel{
+  margin-top: 15px;
+  width: 100%;
+  height: 125px;
+  
+}
+#carousel_list{
+  width: 90%;
+  margin: 0 auto;
+  height: 125px;
+  
+}
+#carousel_item>img{
+  width: 100%;
+  margin:0 auto;
+  height: 120px;
+  border-radius: 5px;
+}
+/* 中间导航 */
+#navbar{
+  width: 100%;
+  height: 20px;
+  margin: 15px 0 15px;
+  background-color: #fff;
+}
+#navbar .bar_list{
+  width: 100%;
+  height: 20px;
+  display: flex;
+  flex-flow:row;
+  justify-content: center;
+}
+.bitem{
+  width:160px;
+  text-align: center;
+  margin: 0 25px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+.select{
+  width: 15px;
+  margin: 0 auto;
+  margin-top: 5px;
+  border-top: 2px solid #fef;
+}
+/* 导航栏激活后样式 */
+.selected{
+  border-top: 2px solid yellow;
+}
+
+/* 瀑布流 */
+.waterfall{
+  width: 100%;
+  margin-top: 15px;
+
+}
+.box{
+  width: 100%;
+  position: relative;
+  border: 1px solid #faf;
+}
+.box_item{
+  width: 180px;
+  border: 1px solid #aaf;
+  border-radius: 5px;
+  position: absolute;
+  box-shadow: 2px 2px 2px #999;
+}
+.box_item>img{
+  width: 180px;
+}
 
 </style>
