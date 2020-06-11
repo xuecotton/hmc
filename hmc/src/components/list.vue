@@ -1,10 +1,10 @@
 <template>
     <div class="listall">
         <ul>
-            <li><router-link to="/"><img src="../assets/首页图片/图标蓝色/zufang.png">
+            <li><router-link to="/gongyv"><img src="../assets/首页图片/图标蓝色/zufang.png">
                 <p>长租好房</p>
             </router-link></li>
-            <li><router-link to="/"><img src="../assets/首页图片/图标蓝色/key.png">
+            <li><router-link to="/gongyv"><img src="../assets/首页图片/图标蓝色/key.png">
                 <p>无接触房</p>
             </router-link></li>
             <li><router-link to="/"><img src="../assets/首页图片/图标蓝色/medal.png">
@@ -37,6 +37,10 @@
     </div>
 </template>
 <style scoped>
+/* 所有样式 */
+.listall{
+    width: 100%;
+}
 /* 列表样式 */
     ul{list-style: none;}
     ul::before{

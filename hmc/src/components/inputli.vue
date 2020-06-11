@@ -68,9 +68,13 @@ export default{
     input{height:30px;border: none;outline: none;}
     .inputall>div div{float: left;}
     /* 第一个输入框 */
-    .top{padding:20px 20% 0px;border-bottom: 1px solid #e8e8e8;}
+    .top{padding:20px 20% 0px;border-bottom: 1px solid #e8e8e8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     /* 第二个并排input */
-    .mid{padding:0 27px}
+    .mid{padding:0 27px;}
     .mid>div+div{border-left: 1px solid #e8e8e8;}
     /* 最后一个input */
     .btm{padding:0px 26% 10px;border-top: 1px solid #e8e8e8;}
