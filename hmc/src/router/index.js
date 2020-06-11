@@ -6,6 +6,7 @@ Vue.use(VueRouter)
 
 
 import Articles from '../components/articles.vue'
+import Article from '../components/article.vue'
 
 
 const routes = [
@@ -18,6 +19,10 @@ const routes = [
   {
     path: '/articles',
     component : Articles
+  },
+  {
+    path: '/article',
+    component : Article
   },
   {
     path: '/about',
