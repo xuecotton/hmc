@@ -8,23 +8,16 @@
 		</mt-header>
 		<!-- 顶部导航结束 -->
 		<!-- 轮播图开始 -->
-		<mt-swipe :auto="4000" class="d-mt-swipe">
-			<mt-swipe-item>
+		<mt-swipe ref="swipe" :auto="4000" @change="handleChange" class="d-mt-swipe">
+			<mt-swipe-item v-for="(item,index) in swipeImages" :key="index">
 					<router-link to="">
-						<img src="../assets/images/carousel1.jpg" alt="">
-					</router-link>
-				</mt-swipe-item>
-				<mt-swipe-item>
-					<router-link to="">
-						<img src="../assets/images/carousel3.jpg" alt="">
-					</router-link>
-				</mt-swipe-item>
-				<mt-swipe-item>
-					<router-link to="">
-						<img src="../assets/images/carousel1.jpg" alt="">
+						<img :src="require('../assets/images/'+item)" alt="">
 					</router-link>
 			</mt-swipe-item>
 		</mt-swipe>
+		<p class="d-AllLength">
+			<span>{{Sindex}}&nbsp;/&nbsp;{{swipeImages.length}}</span>
+		</p>
 		<!-- 轮播图结束 -->
 		<!-- 轮播图下方标题-->
 		<div class="d-title-box">
@@ -42,7 +35,7 @@
 			</div>
 			<!-- 每晚价格 -->
 			<div class="d-priceAndreserve">
-				<span class="d-price">$186</span>
+				<span class="d-price">￥186</span>
 				<span class="d-dan">每晚</span>
 				<button class="d-reserve">马上预订</button>
 			</div>
@@ -50,10 +43,94 @@
 		<!-- 该酒店房间配置 -->
 		<div class="d-fangjian">
 			<ul class="d-fj-referral">
-				<li><img src="../assets/images/fenzu.png" alt=""></li>
-				<li><img src="../assets/images/woshi.png" alt=""></li>
-				<li><img src="../assets/images/chuang.png" alt=""></li>
-				<li><img src="../assets/images/yugang.png" alt=""></li>
+				<li>
+					<div>
+						<img src="../assets/images/fenzu.png" alt="">
+						<span>3客人</span>
+					</div>
+				</li>
+				<li>
+					<div>
+						<img src="../assets/images/woshi.png" alt="">
+						<span>1卧室</span>
+					</div>
+				</li>
+				<li>
+					<div>
+						<img src="../assets/images/chuang.png" alt="">
+						<span>2大床</span>
+					</div>
+				</li>
+				<li>
+					<div>
+						<img src="../assets/images/yugang.png" alt="">
+						<span>浴缸</span>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<!-- 房间介绍 -->
+		<div class="d-present">
+			<h5 class="d-present-title">介绍</h5>
+			<i class="cell">
+				舒适方便的四星级高级酒店，带给你不一样的体验，交通便利，生活设施齐全，省去你来回奔波得到很多时间，出差旅游的好选择，Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita assumenda illum quibusdam dicta quaerat vitae adipisci est alias deleniti magni quos non dolor rerum nisi recusandae consequuntur et ut. Beatae.
+			</i><span id="selectAll" class="d-selectAll" @click="TitleShow()">查看全部</span>
+			<!-- 这里使用的进度条来模拟的评分 -->
+			<h5 class="d-present-title">评价</h5>
+			<ul id="d_progress">
+				<li>
+					<span>舒适</span>
+					<mt-progress :value="85" class="d-progress-w">
+						<div slot="end">8.5</div>
+					</mt-progress>
+				</li>
+				<li>
+					<span>舒适</span>
+					<mt-progress :value="85" class="d-progress-w">
+						<div slot="end">8.5</div>
+					</mt-progress>
+				</li>
+				<li>
+					<span>舒适</span>
+					<mt-progress :value="85" class="d-progress-w">
+						<div slot="end">8.5</div>
+					</mt-progress>
+				</li>
+				<li>
+					<span>舒适</span>
+					<mt-progress :value="85" class="d-progress-w">
+						<div slot="end">8.5</div>
+					</mt-progress>
+				</li>
+				<li>
+					<span>舒适</span>
+					<mt-progress :value="85" class="d-progress-w">
+						<div slot="end">8.5</div>
+					</mt-progress>
+				</li>
+				<li>
+					<span>舒适</span>
+					<mt-progress :value="85"  class="d-progress-w">
+						<div slot="end">8.5</div>
+					</mt-progress>
+				</li>
+			</ul>
+		</div>
+		<!-- 3晚起订提示 -->
+		<div class="d-alert-title">
+			<h3>3晚起订</h3>
+		</div>
+		<!-- 配套设施图片 -->
+		<div class="d-mating-title">
+			<h3>配套设施</h3>
+			<ul>
+				<li><img src="../assets/images/kongtiao.png" alt=""></li>
+				<li><img src="../assets/images/bingxiang.png" alt=""></li>
+				<li><img src="../assets/images/weibolu.png" alt=""></li>
+				<li><img src="../assets/images/yundou.png" alt=""></li>
+				<li>
+					<h3>+10</h3>
+				</li>
 			</ul>
 		</div>
 	</div>
@@ -61,11 +138,35 @@
 
 <script>
 	export default {
-		
+		data(){
+			return{
+				swipeImages:["carousel1.jpg","carousel3.jpg","carousel1.jpg"],
+				Sindex:1,
+			}
+		},
+		methods:{
+			handleChange(){
+				this.Sindex = this.$refs.swipe.index + 1
+				console.log(this.swipeImages.length);
+			},
+			
+			
+			TitleShow(){
+				var cell=document.querySelector(".cell");
+				// document.getElementById("selectAll");
+				// console.log(document.getElementById("selectAll"));
+				// console.log(cell);
+				cell.style.height="auto";
+				document.getElementById("selectAll").style.display="none";
+			}
+		}
 	}
 </script>
 
 <style scoped>
+	.details{
+		position: relative;
+	}
 	.d-header{
 		background-color: rgba(250,205,205,0);
 		padding: 0;
@@ -84,6 +185,23 @@
 	.d-mt-swipe img{
 		width: 100%;
 		height:100%;
+	}
+	/* 当前页码 */
+	.d-AllLength{
+		display: block;
+		width: 60px;
+		height: 30px;
+		background-color: rgba(200,200,200,0.2);
+		text-align: center;
+		border-radius: 30px;
+		position:absolute;
+		top: 34vh;
+		right: 10px;
+		
+	}
+	.d-AllLength span{
+		display: inline-block;
+		margin-top:15% ;
 	}
 	.d-title-box{
 		padding: 15px 15px;
@@ -140,22 +258,138 @@
 	}
 	
 	/* 房间配置信息 -- 图片*/
-	.d-fangjian .d-fj-referral{
+	.d-fangjian{
+		width:90%;
+		border-top: 1px solid #e0e3eb;
+		padding: 5px;
 		margin: 0 auto;
-
+		margin-bottom: 10px;
+	}
+	.d-fangjian .d-fj-referral{
+		width: 100%;
+		display: flex;
+		flex-wrap: nowrap;
+		margin: 0 auto;
+		margin-top: 15px;
 	}
 	.d-fangjian .d-fj-referral li{
 		display: inline-block;
 		/* text-align: center; */
 	}
 	.d-fangjian .d-fj-referral li:first-child{
-		margin-left:12% ;
+		margin-left:0% ;
 	}
 	.d-fangjian .d-fj-referral li+li{
-		margin-left: 11%;
+		margin-left: 13%;
 	}
-	.d-fangjian .d-fj-referral li img{
+	.d-fangjian .d-fj-referral li div{
+		width:40px;
+		line-height: 40px;
+	}
+	.d-fangjian .d-fj-referral li div span{
+		font-size: 13px;
+		color: #7C808B;
+		display: inline-block;
+		width: 40px;
+		text-align: center;
+	}
+	.d-fangjian .d-fj-referral li div img{
 		width:40px;
 		height: 40px;
 	}
+	/* 房间介绍区域 */
+	.d-present{
+		border-top:1px solid #E0E3EB ;
+		padding: 5px;
+		line-height: 20px;
+		width: 90%;
+		margin: 0 auto;
+	}
+	.d-present .d-present-title{
+		font-size: 20px;
+		font-weight: bold;
+		margin-bottom: 10px;
+		margin-top: 20px;
+	}
+	.d-present .cell{
+		height: 40px;
+		overflow : hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: 7;
+		-webkit-box-orient: vertical;
+	}
+	.d-selectAll{
+		float: right;
+		color: #52c8cf;
+	}
+	/* 评价区域，打分状态 */
+	#d_progress{
+		padding: 5px;
+		margin-bottom: 10px;
+	}
+	#d_progress li{
+		display:inline-block;
+		width: 50%;
+	}
+	.d-progress-w{
+		width: 80%;
+	}
+	.d-progress-w div{
+		color: #7C808B;
+		font-size:12px ;
+		margin-left: 10px;
+	}
+	#d_progress li span{
+		font-size: 12px;
+		color: #7C808B;
+	}
+	.d-progress-w div div.mt-progress-progress{
+		background-color: #52C8CF;
+	}
+	/* 三晚起订标题 */
+	.d-alert-title{
+		border-top:1px solid #E0E3E5;
+		line-height: 65px;
+		width: 90%;
+		margin: 0 auto;
+		color: #7C808B;
+		border-bottom:1px solid #E0E3E5;
+	}
+	.d-alert-title h3{
+		color: #7C808B;
+	}
+	/* 配套信息区域 */
+	.d-mating-title h3{
+		line-height: 50px;
+		width: 90%;
+		margin: 0 auto;
+		color: #434157;
+		font-weight: bold;
+		font-size: 18px;
+	}
+	.d-mating-title ul{
+		width: 90%;
+		display: flex;
+		flex-wrap: nowrap;
+		margin: 0 auto;
+		margin-top: 15px;
+		margin-bottom: 30px;
+	}
+	.d-mating-title ul li{
+		display: inline-block;
+	}
+	.d-mating-title ul li+li{
+		margin-left:10% ;
+	}
+	.d-mating-title ul li img{
+		width: 40px;
+		height: 40px;
+	}
+	.d-mating-title ul li:last-child h3{
+		display: block;
+		font-size: 24px;
+		color: #42B983;
+	}
+	
 </style>
