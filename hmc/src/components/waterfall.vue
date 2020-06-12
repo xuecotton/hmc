@@ -180,7 +180,7 @@
     /* box样式 */
     .box{
     width: 40%;
-    padding: 15px 0 0 8%;
+    padding: 15px 0 0 8.5%;
     position: absolute;
     }
 
@@ -245,19 +245,17 @@
 export default {
     // 此时不能引用data中的函数
     mounted(){
-        window.onload=function(){
-            console.log(1)
+        window.onload=function waterfall(){
             window.getindex=function(arr,val){
                 for(var i=0;i<arr.length;i++){
                     if(arr[i]==val){
-                         return i
+                        return i
                     }
                 }
             };
             
             // 获取所有box
             var boxs=document.getElementsByClassName('box')
-            console.log(boxs[0])
             // 获取主区域
             var main=document.getElementsByClassName('main')[0]
             // 宽
@@ -266,9 +264,6 @@ export default {
             var cols=Math.floor(document.documentElement.clientWidth/boxwidth)
             // 设置主区域的宽度
             main.style.width=cols*boxwidth+"px";
-            console.log(boxs)
-            console.log(boxs[0].offsetHeight);
-            console.log(boxs[0].offsetWidth);
             // 空数组
             var harr=[];
             for(var i=0;i<boxs.length;i++){
@@ -292,15 +287,16 @@ export default {
                     harr[index]+=boxs[i].offsetHeight;
                 }
             }
-        }
+        };
+
     },
     methods:{
         
         //获取最矮的值得index下标
         // getindex(arr,val){
-        //     for(var i=0;i<arr.length;i++){
-        //         if(arr[i]==val){
-        //             return i
+            //     for(var i=0;i<arr.length;i++){
+                //         if(arr[i]==val){
+                    //             return i
         //         }
         //     }
         // },

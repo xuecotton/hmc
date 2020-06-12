@@ -17,6 +17,10 @@ Vue.use(VueRouter)
   {
     path: '/gongyv',
     component: () => import(/* webpackChunkName: "about" */ '../views/gongyv.vue')
+  },
+  {
+    path: '/changxiao',
+    component: () => import(/* webpackChunkName: "about" */ '../views/changxiao.vue')
   }
 ]
 

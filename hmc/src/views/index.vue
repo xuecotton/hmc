@@ -38,13 +38,17 @@
 import carousel from '../components/carousel.vue';
 import inputli from '../components/inputli';
 import list from '../components/list';
-
 import waterfall from '../components/waterfall';
+
+
 export default {
   data(){
     return {
       act:"home"
     }
+  },
+  mounted(){
+    window.onload()
   },
   // 规定范围内的子组件
   components: {
@@ -66,7 +70,7 @@ export default {
   /* 瀑布流 */
   .waterfall{
     padding-top: 80px;
-    height: 100%;
+    height: auto;
   }
   /* tabbar底部选项卡 */
 
