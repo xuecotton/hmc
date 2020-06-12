@@ -133,6 +133,16 @@
 				</li>
 			</ul>
 		</div>
+		<!-- 联系方式区域 -->
+		<div class="d-contact">
+			<h3>联系方式</h3>
+			<p>美国，洛杉矶市，工业大道250号，维多利亚广场2200号</p>
+		</div>
+		<!-- 底部页脚 -->
+		<div class="d-bottom">
+			<span>￥186元每晚</span>
+			<button>点我预定</button>
+		</div>
 	</div>
 </template>
 
@@ -149,8 +159,7 @@
 				this.Sindex = this.$refs.swipe.index + 1
 				console.log(this.swipeImages.length);
 			},
-			
-			
+			// 控制  查看全部  按钮点击后隐藏
 			TitleShow(){
 				var cell=document.querySelector(".cell");
 				// document.getElementById("selectAll");
@@ -391,5 +400,52 @@
 		font-size: 24px;
 		color: #42B983;
 	}
-	
+	/* 联系方式区域 */
+	.d-contact{
+		width:90%;
+		margin: 0 auto;
+		border-top:1px solid #E0E3E5 ;
+		margin-bottom: 60px;
+	}
+	.d-contact h3{
+		margin-top:20px ;
+		line-height: 50px;
+		width: 90%;
+		color: #434157;
+		font-weight: bold;
+		font-size: 18px;
+	}
+	.d-contact p{
+		font-size: 15px;
+		line-height: 18px;
+	}
+	/* 底部页脚 */
+	.d-bottom{
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		background-color: #fff;
+		height: 60px;
+		line-height: 60px;
+	}
+	.d-bottom span{
+		display: block;
+		width: 150px;
+		float: left;
+		text-align: center;
+		color: #7C808B;
+		font-size: 18px;
+	}
+	.d-bottom button{
+		float: right;
+		margin-right: 30px;
+		margin-top:15px ;
+		border: none;
+		outline: none;
+		background-color: #52c8cf;
+		width: 70px;
+		height: 30px;
+		color: #fff;
+		border-radius: 6px;
+	}
 </style>
