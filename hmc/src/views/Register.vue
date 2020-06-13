@@ -5,7 +5,7 @@
        <div class="mengban"></div>
        </div>
       <h1>欢迎来到花明村</h1>
-      <router-link to="/" style="text-decoration:none">
+      <router-link to="/registers" style="text-decoration:none">
       <mt-button size="large" class="buttton_1"  >
        
      创建新账户
@@ -94,7 +94,7 @@
       margin-right:13.8%
     } 
     .container li a img{
-      width:40px;
+      width:30px;
       /* height: 9.66%; */
     }
     .container li{
