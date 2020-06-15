@@ -7,10 +7,10 @@
             <li><router-link to="/gongyv"><img src="../assets/首页图片/图标蓝色/key.png">
                 <p>无接触房</p>
             </router-link></li>
-            <li><router-link to="/"><img src="../assets/首页图片/图标蓝色/medal.png">
+            <li><router-link to="/changxiao"><img src="../assets/首页图片/图标蓝色/medal.png">
                 <p>品牌保证</p>
             </router-link></li>
-            <li><router-link to="/"><img src="../assets/首页图片/图标蓝色/mofabang.png">
+            <li><router-link to="/changxiao"><img src="../assets/首页图片/图标蓝色/mofabang.png">
                 <p>新奇体验</p>
             </router-link></li>
             <li><router-link to="/"><img src="../assets/首页图片/图标蓝色/paizhao.png">
