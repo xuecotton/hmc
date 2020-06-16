@@ -45,7 +45,11 @@ export default {
   data(){
     return {
       act:"home"
+
     }
+  },
+  methods:{
+
   },
   mounted(){
     window.onload()

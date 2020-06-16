@@ -25,15 +25,56 @@
         <div class="houseli">
             <div class="li">
                 <div class="item">
-                    <div class="item-img">
-                        <img src="" alt="">
-                        <img src="" alt="">
-                        <img src="" alt="">
+                    <div class="dingwei">
+                        <div class="item-img">
+                            <img src="../assets/首页图片/房间样式/美国教堂/外景.jpg" alt="">
+                            <img src="../assets/首页图片/房间样式/美国教堂/客厅.jpg" alt="">
+                            <img src="../assets/首页图片/房间样式/美国教堂/远景.jpeg" alt="">
+                        </div>
+                        <div class="item-icon">
+                            <span>
+                                ￥359
+                            </span>
+                            <span>
+                                <img src="../assets/tabbar/灰色/aixin1.png" alt="">
+                            </span>
+                        </div>
                     </div>
-                    <div class="item-text">
-                        
+                    <div class="item-p">
+                        <span>
+                            北京西郊美式教堂别墅房
+                        </span>
+                        <span>
+                            5室2厅&emsp;宜居8人
+                        </span>
                     </div>
-                    <div class="item-p"></div>
+                </div>
+            </div>
+            <div class="li">
+                <div class="item">
+                    <div class="dingwei">
+                        <div class="item-img">
+                            <img src="../assets/首页图片/房间样式/美国教堂/外景.jpg" alt="">
+                            <img src="../assets/首页图片/房间样式/美国教堂/客厅.jpg" alt="">
+                            <img src="../assets/首页图片/房间样式/美国教堂/远景.jpeg" alt="">
+                        </div>
+                        <div class="item-icon">
+                            <span>
+                                ￥359
+                            </span>
+                            <span>
+                                <img src="../assets/tabbar/灰色/aixin1.png" alt="">
+                            </span>
+                        </div>
+                    </div>
+                    <div class="item-p">
+                        <span>
+                            北京西郊美式教堂别墅房
+                        </span>
+                        <span>
+                            5室2厅&emsp;宜居8人
+                        </span>
+                    </div>
                 </div>
             </div>
             <div style="clear:both"></div>
@@ -94,5 +135,94 @@
         width: 100%;
         height: auto;
         background-color:#5b4125;
+        padding-top: 20px;
+        margin-top: -120px;
+    }
+
+    .li{
+        width: 100%;
+        height: 300px;
+        border-radius: 3% 3% 3% 3%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 20px;
+    }
+    /* 列表项包裹层 */
+    .item{
+        height: 100%;
+        width: 90%;
+        border-radius: 3% 3% 3% 3%;
+        overflow: hidden;
+    }
+    /* 三个图片的包裹层 */
+    .item-img{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-flow: column;
+        flex-wrap: wrap;
+
+    }
+    /* 上面三个图片的样式 */
+    .item-img img{
+        box-sizing: border-box;
+        
+    }
+    .item-img img:first-child{
+        width: 70%;
+        height: 100%;
+        padding-right: 1px;
+        background-color: white;
+    }
+    .item-img img:nth-child(2){
+        width: 30%;
+        height: 50%;
+        padding-bottom: 1px;
+        background-color: white;
+    }
+    .item-img img:last-child{
+        width: 30%;
+        height: 50%;
+    }
+    /* 设置定位包裹样式 */
+    .dingwei{
+        width: 100%;
+        height: 80%;
+        position: relative;
+    }
+    /* 设置相对定位样式 */
+    .item-icon>span{
+        position: absolute;
+        color: white;
+        font-size: 20px;
+    }
+    .item-icon>span:first-child{
+        left: 5%;
+        bottom: 0;
+    }
+    .item-icon>span:last-child{
+        right: 5%;
+        top: 5%;
+    }
+    /* 设置图片下文本样式 */
+    .item-p{
+        height: 20%;
+        background-color: white;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+    .item-p>span{
+        padding-left: 5%;
+    }
+    .item-p>span:first-child{
+        font-weight: bolder;
+    }
+    .item-p>span:last-child{
+        font-size: 14px;
+        color: #888;
     }
 </style>

@@ -1,9 +1,9 @@
 <template>
     <div class="all">
         <mt-header title="公寓" class="head" fixed>
-            <!-- <router-link to="/gongyv" slot="left">
-                <mt-button icon="back"></mt-button>
-            </router-link> -->
+            <router-link to="/" slot="left">
+                <mt-button icon="back" style="padding-left:10px"></mt-button>
+            </router-link>
         </mt-header>
         <div class="listall">
             <table></table>
