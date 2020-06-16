@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Details from '../views/Details.vue'
+import Reserve from '../views/Reserve.vue'
 
 
 
@@ -17,6 +18,10 @@ const routes = [
   {
     path: '/details',
     component: Details
+  },
+  {
+    path: '/reserve',
+    component: Reserve
   },
   {
     path: '/about',
