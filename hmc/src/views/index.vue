@@ -6,9 +6,11 @@
       <list class="list">
       </list>
     </div>
-      <waterfall class="waterfall">
+      <keep-alive>
+        <waterfall class="waterfall">
 
-      </waterfall>
+        </waterfall>
+      </keep-alive>
       <mt-tabbar fixed v-model="act">
         <div class="pad"></div>
         <mt-tab-item id="home">

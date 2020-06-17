@@ -239,6 +239,11 @@
         border-radius: 50%;
         box-shadow: 0px 0px 5px #ccc;
     }
+
+    /* 解决发定位带来的影响 */
+    .main>div:last-child{
+        margin-bottom: 50px;
+    }
 </style>
 
 <script>

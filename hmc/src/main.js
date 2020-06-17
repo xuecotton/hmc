@@ -6,6 +6,9 @@ import axios from 'axios'
 import qs from 'qs'
 //引入mintui中的轮播图组件
 import { Swipe, SwipeItem } from 'mint-ui';
+import { DatetimePicker } from 'mint-ui';
+
+Vue.component(DatetimePicker.name, DatetimePicker);
 
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);

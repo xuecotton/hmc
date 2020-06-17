@@ -77,12 +77,37 @@
                     </div>
                 </div>
             </div>
-            <div style="clear:both"></div>
+            <div class="showbottom"></div>
         </div>
+        <mt-tabbar fixed v-model="act">
+        <mt-tab-item id="home">
+            <router-link to="/" slot="icon">
+                <img id="bug1img" src="../assets/tabbar/蓝色/fangzi.png" alt="">
+            </router-link>
+        </mt-tab-item>
+        <mt-tab-item id="aixin">
+            <router-link to="/" slot="icon">
+                <img src="../assets/tabbar/蓝色/aixin1.png" alt="">
+            </router-link>
+        </mt-tab-item>
+        <mt-tab-item id="sousuo">
+            <router-link to="/" slot="icon">
+                <img src="../assets/tabbar/蓝色/sousuo.png" alt="">
+            </router-link>
+        </mt-tab-item>
+        <mt-tab-item id="user">
+            <router-link to="/" slot="icon">
+                <img src="../assets/tabbar/蓝色/user.png" alt="">
+            </router-link>
+        </mt-tab-item>
+      </mt-tabbar>
     </div>
 </template>
 
 <style scoped>
+    .showbottom{
+        padding-top: 15%;
+    }
     /* 导航栏样式 */
     .cxhead{
         background-color: white;
@@ -138,7 +163,7 @@
         padding-top: 20px;
         margin-top: -120px;
     }
-
+    
     .li{
         width: 100%;
         height: 300px;

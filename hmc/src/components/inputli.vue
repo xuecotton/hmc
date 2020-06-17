@@ -7,14 +7,25 @@
             </div>
             <div class="mid">
                 <div>
-                    <input type="date" value="入住日期">
-                    <!-- <mt-datetime-picker
-                        ref="picker"
-                        type="time"
-                        v-model="pickerValue">
-                    </mt-datetime-picker> -->
+                    <input type="date" v-model="starttime" @blur="start">
+                    <!-- <button @click="dataClick">
+                        <mt-datetime-picker
+                            v-model="pickerVisible"   
+                            ref="pickerData"             
+                            type="date"                    
+                            year-format="{value} 年"
+                            month-format="{value} 月"
+                            date-format="{value} 日"
+                            @confirm="handleConfirm"    
+                            :startDate="startDate"   
+                            >
+                        </mt-datetime-picker>
+      
+                        123
+                    </button> -->
+                    
                 </div>
-                <div><input type="date" value="入住日期"></div>
+                <div><input type="date" v-model="endtime" @blur="end"></div>
             </div>
             <div class="btm">
                 <div><input type="text" placeholder="人数"></div>
@@ -30,21 +41,38 @@
 
 <script>
 // 引入picker
-// import { DatetimePicker } from 'mint-ui';
+ //import { DatetimePicker } from 'mint-ui';
 
 export default{
     name:'inputli',
-    components:{
-        
-    },
-    methods: {
-      openPicker() {
-        this.$refs.picker.open();
-      }
-    },
+
     data(){
         return{
-            dateval:""
+            pickerVisible:'',
+            startDate:new Date(),
+            time:'',
+            starttime:"",
+            endtime:""
+        }
+    },
+    methods: {
+        rentInformat(){
+        this.$router.push('/rentInformation')
+        },
+        dataClick(){
+        this.$refs.pickerData.open();   // 触发
+        // this.$refs.pickerData.close() ; // 关闭
+        },
+        handleConfirm(val){
+            console.log(val,this.pickerVisible)
+            this.time = val ;
+
+        },
+        start(){
+            console.log(this.starttime)
+        },
+        end(){
+            console.log(this.endtime)
         }
     }
 }
@@ -53,6 +81,12 @@ export default{
 
 
 <style scoped>
+    /* 组件日期输入框 */
+    .datetime{
+        position: fixed;
+        z-index: 1111111111111111!important;
+        opacity: 1;
+    }
     /* 输入框外部样式 */
     .inputall{width:100%;
     background-image: linear-gradient(to top,rgba(255,255,255,1),rgba(255,255,255,0.05));
@@ -60,10 +94,11 @@ export default{
     /* 包裹区域样式 */
     .inputall>div{width: 90%;height: 200px;
     background-color: white;
-    opacity: 0.9;
+    opacity: 1;
     margin: 20px auto 0px;overflow:hidden;
     border-radius: 5%;
     }
+        .datetime{opacity: 1!important;}
     /* 输入框样式 */
     input{height:30px;border: none;outline: none;}
     .inputall>div div{float: left;}

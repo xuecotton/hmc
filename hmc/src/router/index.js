@@ -19,6 +19,10 @@ Vue.use(VueRouter)
     component: () => import(/* webpackChunkName: "about" */ '../views/gongyv.vue')
   },
   {
+    path: '/test',
+    component: () => import(/* webpackChunkName: "about" */ '../views/datepicker.vue')
+  },
+  {
     path: '/changxiao',
     component: () => import(/* webpackChunkName: "about" */ '../views/changxiao.vue')
   }
