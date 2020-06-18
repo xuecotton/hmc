@@ -94,7 +94,7 @@ export default{
     /* 包裹区域样式 */
     .inputall>div{width: 90%;height: 200px;
     background-color: white;
-    opacity: 1;
+    opacity: 0.9;
     margin: 20px auto 0px;overflow:hidden;
     border-radius: 5%;
     }
@@ -110,13 +110,14 @@ export default{
     }
     /* 第二个并排input */
     .mid{padding:0 27px;}
+    .mid input{background-color: white;}
     .mid>div+div{border-left: 1px solid #e8e8e8;}
     /* 最后一个input */
     .btm{padding:0px 26% 10px;border-top: 1px solid #e8e8e8;}
     /* 按钮样式 */
     .btn{overflow: hidden;clear: both;width: 100%;}
     .btn>button{width: 50%;height: 30px;border: none;border-radius: 10px;}
-    .btn>button:active{background-color: green;}
+    .btn>button:active{background-color: #39bdc8;}
     .btn>button:active span{color: white;}
     .btn>button{
         border: none;

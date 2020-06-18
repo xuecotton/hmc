@@ -145,7 +145,7 @@
     /* 标题索引 */
     .title>p{
         text-align: left;
-        padding-left: 8%;
+        padding-left: 5%;
     }
     .title>p:first-child{
         font-size: 20px;

@@ -104,6 +104,17 @@
     </div>
 </template>
 
+
+<script>
+export default {
+    data(){
+        return{
+            act:""
+        }
+    }
+}
+</script>
+
 <style scoped>
     .showbottom{
         padding-top: 15%;

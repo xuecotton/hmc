@@ -1,4 +1,6 @@
 <template>
+<div>
+    <div class="allbg"></div>
     <div class="all">
         <mt-header title="公寓" class="head" fixed>
             <router-link to="/" slot="left">
@@ -47,6 +49,7 @@
         </mt-tab-item>
       </mt-tabbar>
     </div>
+</div>
 </template>
 
 <script>
@@ -69,7 +72,14 @@ export default {
         padding: 30px 0;
     }
     .all{
-        background: #f5f5f5;
+        position: relative;
+        z-index: 10;
+    }
+    .allbg{
+        background: url(../assets/houseimg/后院驿站/白天外景图.jpg);
+        height: 100%;width: 100%;
+        position: fixed;
+        opacity: 0.5;
     }
     .all::before{
         content: "";

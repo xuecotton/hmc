@@ -6,12 +6,13 @@
       <list class="list">
       </list>
     </div>
+    <wanghong></wanghong>
       <keep-alive>
         <waterfall class="waterfall">
 
         </waterfall>
       </keep-alive>
-      <mt-tabbar fixed v-model="act">
+      <mt-tabbar fixed v-model="act" class="tabbar">
         <div class="pad"></div>
         <mt-tab-item id="home">
           <img id="bug1img" src="../assets/tabbar/蓝色/fangzi.png" alt="" slot="icon" v-if="act=='home'">
@@ -41,7 +42,7 @@ import carousel from '../components/carousel.vue';
 import inputli from '../components/inputli';
 import list from '../components/list';
 import waterfall from '../components/waterfall';
-
+import wanghong from '../components/wanghong';
 
 export default {
   data(){
@@ -51,7 +52,7 @@ export default {
     }
   },
   methods:{
-
+    
   },
   mounted(){
     window.onload()
@@ -61,7 +62,8 @@ export default {
     carousel,
     inputli,
     list,
-    waterfall
+    waterfall,
+    wanghong
   }
 }
 </script>
@@ -75,11 +77,14 @@ export default {
   }
   /* 瀑布流 */
   .waterfall{
-    padding-top: 80px;
+    padding-top: 30px;
     height: auto;
   }
+  /* tabbar */
+  .tabbar{
+    z-index: 10000000!important;
+  }
   /* tabbar底部选项卡 */
-
   .mint-tab-item-icon{
     margin: auto!important;
   }
