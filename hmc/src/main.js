@@ -9,7 +9,7 @@ import { Swipe, SwipeItem } from 'mint-ui';
 import { DatetimePicker } from 'mint-ui';
 
 Vue.component(DatetimePicker.name, DatetimePicker);
-
+//轮播图组件
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
 

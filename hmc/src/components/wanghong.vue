@@ -55,10 +55,10 @@ export default {
                 a=this.show==0?3:this.show-1;
 
                 imgs[this.show].className+=" showimg"
-                setTimeout(()=>{
-                    console.log(a)
-                    imgs[a].className='calimg'
-                },50)
+ 
+ 
+                imgs[a].className='calimg'
+
             },3000)
         }
     },
