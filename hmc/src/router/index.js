@@ -7,7 +7,7 @@ Vue.use(VueRouter)
 
 import Articles from '../components/articles.vue'
 import Article from '../components/article.vue'
-
+import Swipe from "../components/swipe"
 
 const routes = [
   {
@@ -23,6 +23,10 @@ const routes = [
   {
     path: '/article',
     component : Article
+  },
+  {
+    path: '/swipe',
+    component : Swipe
   },
   {
     path: '/about',

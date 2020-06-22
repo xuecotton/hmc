@@ -8,7 +8,7 @@ import qs from 'qs'
 //引入重置样式 
 import '../src/assets/styles/reset.css'
 
-axios.defaults.baseURL='http://127.0.0.1:3000';
+axios.defaults.baseURL='http://127.0.0.1:3000','http://localhost:8080';
 Vue.prototype.axios=axios;
 Vue.prototype.qs=qs;
 Vue.config.productionTip = false

@@ -29,10 +29,14 @@
     <div class="waterfall">
       <div id="box">
         <div id="box_item">
-          <img src="../assets/images/fall11.jpg" alt="">
+          <router-link to="/article">
+            <img src="../assets/images/fall11.jpg" alt="">
+          </router-link>
           <div class="intr">
             <p class="address"><img src="../assets/images/weizhi.png" alt="">北京</p>
-            <div class="art_title"><span>面朝大海，春暖花开，我在等风也在能你，大漠孤烟直，长河落日圆</span></div>
+            <router-link to="/article">
+              <div class="art_title"><span>面朝大海，春暖花开，我在等风也在能你，大漠孤烟直，长河落日圆</span></div>
+            </router-link>
             <p class='author'><span class="author_avatar"></span><span>作者姓名</span><img src="../assets/images/dianzan.png" alt=""><span>120</span></p>
           </div>
         </div>
@@ -313,7 +317,7 @@ export default {
   justify-content: center;
 }
 #box_item>img{
-  width: 100%;
+  
   height: auto;
   border-radius: 5px 5px 0 0 ;
 }
@@ -329,6 +333,10 @@ export default {
   height: 15px;
   font-size: 12px;
   color:#aaa;
+}
+.address>img{
+  width: 15px;
+  height: 15px;
 }
 .art_title{
   width: 100%;
@@ -354,6 +362,10 @@ export default {
   flex-flow: row;
   align-items: center;
   justify-content: space-between;
+}
+.author>img{
+  height: 20px;
+  width: 20px;
 }
 .author_avatar{
   display: inline-block;

@@ -28,9 +28,19 @@
                     <p>年轻人想了想，他说陛下我叫，达拉崩吧斑得贝迪卜多比鲁翁国王：再说一次少年：达拉崩巴斑得贝迪卜多比鲁翁国王：是不是，达拉崩吧斑得贝迪卜多比鲁翁少年：对对，达拉崩巴斑得贝迪卜多比鲁翁旁白：英雄达拉崩吧，骑上最快的马带着大家的希望从城堡里出发战胜怪兽来袭，获得十二金币无数伤痕见证，他慢慢升级小女孩：偏远美丽村庄，打开所有宝箱一路风霜伴随指引前路的圣月光闯入一座山洞，公主和可怕的巨龙英雄拔出宝剑，巨龙说巨龙：我是，昆图库塔卡提考特苏瓦西拉松少年：再来一次巨龙：昆图库塔卡提考特苏瓦西拉松少年：是不是，昆特牌提琴，烤蛋挞，苏打，马拉松巨龙：不对，是昆图库塔卡提考特苏瓦西拉松旁白：于是少年：达拉崩巴斑得贝迪卜多比鲁翁旁白：砍向巨龙：昆图库塔卡提考特苏瓦西拉松旁白：然后巨龙：昆图库塔卡提考特苏瓦西拉松旁白：咬了少年：达拉崩吧斑得贝迪卜多比鲁翁旁白：最后达拉崩巴斑得贝迪卜多比鲁翁他战胜了巨龙：昆图库塔卡提考特苏瓦西拉松旁白：救出了，公主米娅莫拉苏娜丹妮谢莉红回到了，蒙达鲁克硫斯伯古比奇巴勒城国王听说达拉崩巴斑得贝迪卜多比鲁翁他打败了昆图库塔卡提考特苏瓦西拉松就把，公主米娅莫拉苏娜丹妮谢莉红嫁给达拉崩吧斑得贝迪卜多比鲁翁啦啦，达拉崩巴，公主米娅幸福得像个童话他们生下一个孩子，也在天天渐渐长大为了避免以后麻烦，孩子称作王浩然他的全名十分难念，要念你来念吧</p>
                 </div>
                 <span id="readMore" @click='readMore()'>查看更多</span>
+                <div class="comment">
+                    <img class="comment_img" src="../assets/images/fall2.jpg" alt="">
+                    <div class="comment_intr">
+                        <div class="intr_title">桃花坞，桃花庵</div>
+                        <span class="intr_desc">西安·1居1床2人·24平米</span>
+                        <span class="price">¥230</span>
+                    </div>
+                </div>
+        <div class="date">发布于2020-06-11</div>
             </div>
-            
         </div>
+
+        
     </div>
 </template>
 
@@ -66,7 +76,6 @@
         width: 100%;
         background-color: #fff;
         position:relative;
-        
     }
     .mian_content{
         width: 100%;
@@ -107,6 +116,8 @@
         padding: 0 0 15px 15px;
     }
     .address>img{
+        width: 15px;
+        height: 15px;
         margin-right: 5px;
     }
     /* 文章内容 */
@@ -125,7 +136,45 @@
         color: coral;
         font-weight: 800;
     }
-
+    .comment{
+        width: 95%;
+        margin: 0 auto;
+        height: 100px;
+        border-radius: 5px;
+        margin-top: 50px;
+        display: flex;
+        box-shadow: 2px 2px 2px #aaa;
+        
+    }
+    .comment_img{
+        flex: 1;
+        border-radius: 5px 0 0 5px;
+    }
+    .comment_intr{
+        flex:2;
+        display:flex;
+        flex-flow: column;
+        margin-left: 10px;
+    }
+    .intr_title,.intr_desc,.price{
+        margin: 8px 0;
+    }
+    .intr_title{
+        font-size: 20px;
+        color:#333;
+    }
+    .intr_desc{
+        font-size: 12px;
+        color:#555;
+    }
+    .price{
+        font-size: 20px;
+        color:#ffd037;
+    }
+    .date{
+        margin : 15px 0 15px 5px;
+        font-size: 15px;;
+    }
 </style>
 <script>
 export default {
@@ -149,6 +198,13 @@ export default {
             MoreEle.style.display = 'none'
 
         }
+    },
+    mounted(){
+        this.axios.get('/desc',{ 
+            params:{id:9002}
+        } ).then((res)=>{
+            console.log(res.data)
+        })
     }
 }
 </script>
