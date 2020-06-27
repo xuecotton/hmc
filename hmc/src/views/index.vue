@@ -14,21 +14,29 @@
       </keep-alive>
       <mt-tabbar fixed v-model="act" class="tabbar">
         <div class="pad"></div>
-        <mt-tab-item id="home">
-          <img id="bug1img" src="../assets/tabbar/蓝色/fangzi.png" alt="" slot="icon" v-if="act=='home'">
-          <img src="../assets/tabbar/灰色/fangzi.png" alt="" slot="icon" v-else>
+        <mt-tab-item id="/">
+          <router-link to="/" slot="icon">
+          <img id="bug1img" src="../assets/tabbar/蓝色/fangzi.png" alt=""  v-if="act=='/'">
+          <img src="../assets/tabbar/灰色/fangzi.png" alt="" v-else>
+          </router-link>
         </mt-tab-item>
-        <mt-tab-item id="aixin">
-          <img src="../assets/tabbar/蓝色/aixin1.png" alt="" slot="icon" v-if="act=='aixin'">
-          <img src="../assets/tabbar/灰色/aixin1.png" alt="" slot="icon" v-else>
+        <mt-tab-item id="/changxiao">
+          <router-link to="/changxiao" slot="icon">
+          <img src="../assets/tabbar/蓝色/aixin1.png" alt="" v-if="act=='/changxiao'">
+          <img src="../assets/tabbar/灰色/aixin1.png" alt="" v-else>
+          </router-link>
         </mt-tab-item>
-        <mt-tab-item id="sousuo">
-          <img src="../assets/tabbar/蓝色/sousuo.png" alt="" slot="icon" v-if="act=='sousuo'">
-          <img src="../assets/tabbar/灰色/sousuo.png" alt="" slot="icon" v-else>
+        <mt-tab-item id="/articles">
+          <router-link to="/articles" slot="icon">
+          <img src="../assets/tabbar/蓝色/sousuo.png" alt="" v-if="act=='/articles'">
+          <img src="../assets/tabbar/灰色/sousuo.png" alt="" v-else>
+          </router-link>
         </mt-tab-item>
-        <mt-tab-item id="user">
-          <img src="../assets/tabbar/蓝色/user.png" alt=""  slot="icon" v-if="act=='user'">
-          <img src="../assets/tabbar/灰色/user.png" alt="" slot="icon" v-else>
+        <mt-tab-item id="/me">
+          <router-link to="/me" slot="icon">
+          <img src="../assets/tabbar/蓝色/user.png" alt=""  v-if="act=='/me'">
+          <img src="../assets/tabbar/灰色/user.png" alt="" v-else>
+          </router-link>
         </mt-tab-item>
       </mt-tabbar>
   </div>
@@ -47,7 +55,7 @@ import wanghong from '../components/wanghong';
 export default {
   data(){
     return {
-      act:"home"
+      act:"/"
 
     }
   },

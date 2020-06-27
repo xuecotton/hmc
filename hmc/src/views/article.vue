@@ -89,9 +89,7 @@
         height: 25px;
         padding: 15px 0 10px 15px;
     }
-    .autho>span{
-       
-    }
+
     .author_avatar{
         width: 25px;
         height: 25px;

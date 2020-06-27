@@ -14,7 +14,6 @@ import Register from '../views/Register.vue'
 import Registers from '../views/Registers.vue'
 import Login from '../views/Login.vue'
 import Me from '../views/Me.vue'
-import Modify from '../views/Modify'
 
 // 蟑螂恶霸
 import Articles from '../views/articles.vue'
@@ -52,10 +51,6 @@ Vue.use(VueRouter)
   {
     path: '/register',
     component: Register
-  },
-  {
-    path: '/modify',
-    component:Modify
   },
   {
     path: '/reserve',

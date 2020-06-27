@@ -1,7 +1,9 @@
 <template>
-   <div>
+   <div class="registers">
      <!-- 顶部导航栏开始 -->
+          
             <mt-button icon="back"></mt-button>
+            
      <!-- 顶部导航栏结束 -->
      <!-- 标题区域开始 -->
        <div class="slogan">
@@ -121,23 +123,23 @@ export default {
 }
 </script>
 <style scoped>
-     .mt_label{
+      .registers .mt_label{
        color:#434157;
        position: relative;
        top: 31px;
        font-size: 20px;
      
      }
-    .slogan{
+    .registers .slogan{
       color: #434157;
     }
-    .mt_field{
+    .registers .mt_field{
       position:relative;
        border-bottom:2px solid #52c8cf;
       margin-top: 30px;
 
     }
-   .button{
+    .registers .button{
      outline:none;
      border:none;
      width: 100%;
