@@ -6,13 +6,49 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
-    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="../src/assets/reset.css">
+    <style>
+       *{margin: 0;padding: 0;}
+      .mint-swipe-indicators {
+      position: absolute;
+      bottom: 10px;
+      left: 90% !important;
+      top: 50%;
+      transform: translateX(-50%);
+      }
+      .totop{
+        width: 32px;height: 32px;
+        position: fixed;
+       background: url(img/tubiao02.png);
+        right: 0px;
+        bottom: 20%;
+        z-index: 100;
+        margin-right: -32px;
+        transition: 0.2s linear all;
+      }
+  
+    </style>
   </head>
   <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
+    
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <a href="#">
+    <div class="totop">
+        
+    </div>
+    </a>
+    <script>
+      let a=document.documentElement.scrollTop;
+      let totop=document.getElementsByClassName('totop')[0];
+      window.onscroll=function(){
+        if(window.scrollY>=800){
+          totop.style.marginRight=20+'px'
+        }
+        if(window.scrollY<800){
+          totop.style.marginRight=-32+'px'
+        }
+      }
+    </script>
   </body>
 </html>
