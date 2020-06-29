@@ -20,6 +20,7 @@ import Modify from "../views/Modify";
 // 蟑螂恶霸
 import Articles from "../views/articles.vue";
 import Article from "../views/article.vue";
+import WaterList from "../components/WaterList.vue";
 
 Vue.use(VueRouter);
 
@@ -39,6 +40,10 @@ const routes = [
   {
     path: "/waterfall",
     component: Waterfall,
+  },
+  {
+    path: "/waterlist",
+    component: WaterList,
   },
   {
     path: "/me",

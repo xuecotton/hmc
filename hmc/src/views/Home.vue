@@ -7,7 +7,7 @@
     </div>
     <wanghong></wanghong>
     <keep-alive>
-      <Waterfall></Waterfall>
+      <WaterList></WaterList>
     </keep-alive>
   </div>
 </template>
@@ -16,16 +16,17 @@
 import carousel from "../components/carousel.vue";
 import inputli from "../components/inputli";
 import list from "../components/list";
-import Waterfall from "../components/waterfall";
+// import Waterfall from "../components/waterfall";
 import wanghong from "../components/wanghong";
-
+import WaterList from "../components/WaterList";
 export default {
   components: {
     carousel,
     inputli,
     list,
-    Waterfall,
-    wanghong
+    // Waterfall,
+    wanghong,
+    WaterList
   }
 };
 </script>

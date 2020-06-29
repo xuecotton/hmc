@@ -203,8 +203,8 @@ CREATE TABLE `carousel` (
 );
  
  INSERT INTO carousel VALUES(8001,"8001car_img01.jpg","8001car_img01.jpg","8001car_img01.jpg","8001car_img01.jpg","index");
- INSERT INTO carousel VALUES(8002,"8001car_img01.jpg","8001car_img01.jpg","8001car_img01.jpg","8001car_img01.jpg","article");
- INSERT INTO carousel VALUES(8003,"8001car_img01.jpg","8001car_img01.jpg","8001car_img01.jpg","8001car_img01.jpg","another");
- INSERT INTO carousel VALUES(8004,"8001car_img01.jpg","8001car_img01.jpg","8001car_img01.jpg","8001car_img01.jpg","主页");
+ INSERT INTO carousel VALUES(8002,"8002car_img01.jpg","8002car_img01.jpg","8002car_img01.jpg","8002car_img01.jpg","article");
+ INSERT INTO carousel VALUES(8003,"8003car_img01.jpg","8003car_img01.jpg","8003car_img01.jpg","8003car_img01.jpg","another");
+ INSERT INTO carousel VALUES(8004,"8004car_img01.jpg","8004car_img01.jpg","8004car_img01.jpg","8004car_img01.jpg","主页");
 
 

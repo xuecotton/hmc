@@ -121,5 +121,47 @@ server.get("/desc", (req, res) => {
   });
 });
 
+// 文章相关路由
+server.get("/articles", (req, res) => {
+  var sql = "SELECT * FROM article WHERE akeywords=?";
+  var akeywords = req.query.akeywords;
+  pool.query(sql, [akeywords], (err, results) => {
+    if (err) throw err;
+
+    res.send({
+      message: "查询成功",
+      code: 200,
+      results: results,
+    });
+  });
+});
+
+// 文章详情路由
+server.get("/article", (req, res) => {
+  var sql = "SELECT * FROM article WHERE tid=?";
+  var id = req.query.id;
+  pool.query(sql, [id], (err, results) => {
+    if (err) throw err;
+    res.send({
+      message: "查询成功",
+      code: 200,
+      results: results,
+    });
+  });
+});
+
+// 轮播图接口
+server.get("/carousel", (req, res) => {
+  var sql = "SELECT * FROM carousel WHERE keywords=?";
+  var keywords = req.query.keywords;
+  pool.query(sql, [keywords], (err, results) => {
+    if (err) throw err;
+    res.send({
+      message: "查询成功",
+      code: 200,
+      results: results,
+    });
+  });
+});
 //创建监听端口
 server.listen(3000);

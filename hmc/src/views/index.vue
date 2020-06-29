@@ -8,10 +8,11 @@
         <Articles></Articles>
       </mt-tab-container-item>
       <mt-tab-container-item id="sousuo">
-        <Home></Home>
+        <changxiao></changxiao>
       </mt-tab-container-item>
       <mt-tab-container-item id="user">
-        <Register></Register>
+        <Me v-if="isLogin"></Me>
+        <Register v-else></Register>
       </mt-tab-container-item>
     </mt-tab-container>
     <mt-tabbar fixed v-model="act" class="tabbar">
@@ -39,22 +40,38 @@
 <script>
 import Home from "./Home";
 import Articles from "./articles";
-
+import Me from "./Me";
 import Register from "./Register";
+import changxiao from "./changxiao";
 export default {
   data() {
     return {
-      act: "home"
+      act: "home",
+      isLogin: false
     };
   },
-  methods: {},
-  mounted() {},
+  methods: {
+    // isLogin() {
+    //   var islogin = sessionStorage.getItem("isLogined");
+    //   if (islogin == true) {
+    //     return true;
+    //   } else {
+    //     return false;
+    //   }
+    // }
+  },
+  mounted() {
+    if (sessionStorage.getItem("isLogined") != null) {
+      this.isLogin = true;
+    }
+  },
   // 规定范围内的子组件
   components: {
     Home,
     Articles,
-
-    Register
+    Me,
+    Register,
+    changxiao
   }
 };
 </script>
