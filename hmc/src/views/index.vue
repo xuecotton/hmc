@@ -8,7 +8,7 @@
         <Articles></Articles>
       </mt-tab-container-item>
       <mt-tab-container-item id="sousuo">
-        <changxiao></changxiao>
+        <products></products>
       </mt-tab-container-item>
       <mt-tab-container-item id="user">
         <Me v-if="isLogin"></Me>
@@ -42,7 +42,8 @@ import Home from "./Home";
 import Articles from "./articles";
 import Me from "./Me";
 import Register from "./Register";
-import changxiao from "./changxiao";
+// import changxiao from "./changxiao";
+import Products from "./products";
 export default {
   data() {
     return {
@@ -71,7 +72,7 @@ export default {
     Articles,
     Me,
     Register,
-    changxiao
+    Products
   }
 };
 </script>

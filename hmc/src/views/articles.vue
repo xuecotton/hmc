@@ -7,13 +7,11 @@
         <select name="北京" class="citys">
           <option value="北京">北京</option>
           <option value="上海">上海</option>
-          <option value="成都">成都</option>
-          <option value="杭州">杭州</option>
         </select>
 
         <span></span>
       </span>
-      <span class="avatar"></span>
+      <span class="avatar" v-if="isLogin"></span>
     </div>
     <!-- 顶部顶部导航及头像开始 -->
     <!-- 轮播图 -->
@@ -34,23 +32,7 @@
       </mt-swipe>
     </div>
     <!-- 轮播图结束 -->
-    <!-- 中间导航栏 -->
-    <div id="navbar">
-      <ul class="bar_list">
-        <li class="bitem">
-          精选
-          <span class="select"></span>
-        </li>
-        <li class="bitem">
-          收藏热榜
-          <span class="select"></span>
-        </li>
-        <li class="bitem">
-          亲子房
-          <span class="select"></span>
-        </li>
-      </ul>
-    </div>
+
     <!-- 瀑布流 -->
     <WaterList></WaterList>
   </div>
@@ -58,8 +40,19 @@
 // <script>
 import WaterList from "../components/WaterList";
 export default {
+  data() {
+    return {
+      isLogin: false
+    };
+  },
   components: {
     WaterList
+  },
+  mounted() {
+    // 判断登录与否
+    if (sessionStorage.getItem("isLogined") != null) {
+      this.isLogin = true;
+    }
   }
 };
 </script>
@@ -134,37 +127,5 @@ export default {
   margin: 0 auto;
   height: 120px;
   border-radius: 5px;
-}
-/* 中间导航 */
-#navbar {
-  width: 100%;
-  height: 20px;
-  margin: 15px 0 15px;
-  background-color: #fff;
-}
-#navbar .bar_list {
-  width: 100%;
-  height: 20px;
-  display: flex;
-  flex-flow: row;
-  justify-content: center;
-}
-.bitem {
-  width: 160px;
-  text-align: center;
-  margin: 0 25px;
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-}
-.select {
-  width: 15px;
-  margin: 0 auto;
-  margin-top: 5px;
-  border-top: 2px solid #fef;
-}
-/* 导航栏激活后样式 */
-.selected {
-  border-top: 2px solid yellow;
 }
 </style>

@@ -3,7 +3,7 @@
     <div class="index">
       <carousel></carousel>
       <inputli></inputli>
-      <list class="list"></list>
+      <list></list>
     </div>
     <wanghong></wanghong>
     <keep-alive>
@@ -30,3 +30,7 @@ export default {
   }
 };
 </script>
+<style scoped>
+.index {
+}
+</style>

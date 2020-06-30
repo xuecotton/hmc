@@ -21,6 +21,8 @@ import Modify from "../views/Modify";
 import Articles from "../views/articles.vue";
 import Article from "../views/article.vue";
 import WaterList from "../components/WaterList.vue";
+import ProductWater from "../components/ProductWater.vue";
+import Products from "../views/products.vue";
 
 Vue.use(VueRouter);
 
@@ -44,6 +46,14 @@ const routes = [
   {
     path: "/waterlist",
     component: WaterList,
+  },
+  {
+    path: "/productWater",
+    component: ProductWater,
+  },
+  {
+    path: "/products",
+    component: Products,
   },
   {
     path: "/me",

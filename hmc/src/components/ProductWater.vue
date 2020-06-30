@@ -1,7 +1,7 @@
 <template>
   <div class="waterfall">
     <div class="title">
-      <p>美宿种草机</p>
+      <p>美宿搜索</p>
       <p>名宿达人"墙裂"推荐</p>
     </div>
     <div id="box">
