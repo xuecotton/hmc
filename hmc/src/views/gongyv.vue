@@ -1,15 +1,31 @@
 <template>
   <div>
+    <!-- 标题栏 -->
+
+    <div class="top">
+      <span class="back"></span>
+      <span class="title">发现</span>
+      <span calss="option" id="citys">
+        <select name="北京" class="citys">
+          <option value="北京">北京</option>
+          <option value="上海">上海</option>
+        </select>
+        <span></span>
+      </span>
+      <span class="avatar" v-if="isLogin"></span>
+    </div>
+
     <div class="allbg"></div>
     <div class="all">
       <div class="listall">
         <table></table>
-        <div class="li" v-for="(item,index) of obj" :key="index">
+        <div class="li" v-for="(item,index) of obj" :key="index" @click="insurance(item.hid)">
           <div>
             <!-- <img :src="require('../assets/houseimg/homes/ '+ item.fengmian)" alt /> -->
+            <img :src="require('../assets/houseimg/homes/'+item.fengmian)" alt />
           </div>
           <div>
-            <div>{{item.htitle}}</div>
+            <div class="ptitle">{{item.htitle}}</div>
             <div>
               <img v-for="(i,k) of item.rating" :key="k" src="../assets/xingxing.png" alt />
             </div>
@@ -34,12 +50,19 @@
 export default {
   data() {
     return {
+      // 判断登录
+      isLogin: false,
       act: "",
       // 存储获取到的信息
       obj: []
     };
   },
   mounted() {
+    // 判断登录与否
+    if (sessionStorage.getItem("isLogined") != null) {
+      this.isLogin = true;
+    }
+    // 发动请求
     this.axios.get("/homelist").then(res => {
       let result = res.data.results;
       // console.log(result);
@@ -52,6 +75,17 @@ export default {
       this.obj = result.slice(0, 4);
       console.log(this.obj);
     });
+  },
+  methods: {
+    // 路由跳转并传参
+    insurance(id) {
+      this.$router.push({
+        path: "/details",
+        query: {
+          id: id
+        }
+      });
+    }
   }
 };
 </script>
@@ -73,6 +107,70 @@ export default {
 .all::before {
   content: "";
   display: table;
+}
+
+/* 标题栏 */
+.top {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  background-color: #fff;
+  height: 45px;
+  font-size: 10px;
+
+  z-index: 999;
+}
+.back {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 40px;
+  height: 40px;
+  background-image: url("../assets/back.png");
+}
+.title {
+  font-size: 20px;
+  margin-right: 5px;
+  margin-left: 15px;
+}
+
+#citys {
+  padding: 15px 5px 0px 5px;
+  display: inline-block;
+  width: 30px;
+  position: relative;
+  overflow: hidden;
+}
+#citys > span {
+  content: "";
+  background-color: #000;
+  width: 6px;
+  height: 6px;
+  position: absolute;
+  bottom: -2.5px;
+  right: -3px;
+  transform: rotate(45deg);
+}
+.citys {
+  border: none;
+}
+/* 头像 */
+.avatar {
+  display: inline-block;
+  float: right;
+  width: 25px;
+  height: 25px;
+  margin-top: 10px;
+  border-radius: 50%;
+  margin-right: 15px;
+  background-image: url("../assets/images/avatar.jpg");
+  background-position: center;
+  background-size: contain;
+  vertical-align: sub;
+}
+/* 撑开没宽度的头像框 */
+.avatar::before {
+  content: "";
 }
 /* 房屋列表 */
 .li {
@@ -97,8 +195,7 @@ export default {
   overflow: hidden;
 }
 .li > div:first-child img {
-  height: 100%;
-  width: auto;
+  height: 200px;
   border-radius: 10px 0px 0px 10px;
 }
 /* 房屋列表右侧样式 */
@@ -106,6 +203,7 @@ export default {
   display: flex;
   flex-flow: column;
   align-items: left;
+  overflow: hidden;
   justify-content: space-around;
   padding-left: 5%;
 }
@@ -113,6 +211,10 @@ export default {
 .li > div:last-child > div:first-child {
   font-size: 18px;
   font-weight: bold;
+  width: 180px;
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
   display: flex;
   justify-content: left;
 }

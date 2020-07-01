@@ -1,5 +1,13 @@
 <template>
   <div class="app">
+    <mt-header title="分享" class="cxhead">
+      <router-link slot="left" to="/">
+        <mt-button icon="back" type="primary"></mt-button>
+      </router-link>
+      <router-link slot="right" to="/">
+        <mt-button icon="more" type="primary"></mt-button>
+      </router-link>
+    </mt-header>
     <!--详情图片 -->
     <div class="img">
       <mt-swipe
@@ -50,9 +58,15 @@
 </template>
 
 <style scoped>
+.cxhead {
+  background-color: white;
+  color: black;
+  z-index: 9999;
+}
 .img {
   width: 100%;
   height: 320px;
+  margin-top: -40px;
   position: relative;
 }
 #carousel_list {

@@ -23,7 +23,7 @@
     </div>
     <!-- 列表 -->
     <div class="houseli">
-      <div class="li" v-for="(item,index) in obj" :key="index">
+      <div class="li" v-for="(item,index) in obj" :key="index" @click="insurance(item.hid)">
         <div class="item">
           <div class="dingwei">
             <div class="item-img">
@@ -60,6 +60,17 @@ export default {
       act: "",
       obj: {}
     };
+  },
+  methods: {
+    // 路由传参方法
+    insurance(id) {
+      this.$router.push({
+        path: "/details",
+        query: {
+          id: id
+        }
+      });
+    }
   },
   mounted() {
     this.axios.get("/homelist").then(res => {

@@ -10,11 +10,9 @@
       <div class="d-total">
         <table></table>
         <h3>总计: 554.4￥</h3>
-        <p class="d-total-p">包括增值税和服务</p>
         <!-- 价格区域 -->
         <div class="price">
           <h4>价格：504￥</h4>
-          <h4>增值税和服务：50.4￥</h4>
         </div>
         <div class="d-msg">
           <div class="d-msg-img">
@@ -22,7 +20,7 @@
             <span>123312121387</span>
           </div>
           <div class="d-msg-text">
-           <p>4月，23日，四晚</p>
+           <p>2月，24日,4晚</p>
           </div>
         </div>
       </div>
@@ -152,11 +150,16 @@
 export default {
   data(){
     return{
-
+			userMsg : ''
     }
   },
+	mounted(){
+		let query = window.location.href.split('?')[1]
+		query = decodeURI(query)
+		console.log(query)
+	},
   methods:{
-
+		
   }
 }
 </script>

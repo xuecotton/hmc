@@ -51,8 +51,8 @@ server.get("/a", (req, res) => {
 });
 
 // //注册路由
-server.post("/register", (req, res) => {
-  //获取当前提交数据
+server.post("/registers", (req, res) => {
+  //获取用户注册的信息
   var username = req.body.username;
   var password = req.body.password;
 
@@ -72,7 +72,6 @@ server.post("/register", (req, res) => {
     }
   });
 });
-
 // 登录路由
 server.post("/login", (req, res) => {
   // 获取用户输入的信息

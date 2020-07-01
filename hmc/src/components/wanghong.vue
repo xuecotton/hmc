@@ -4,12 +4,12 @@
       <span>网红美宿</span>
       <span>随手一拍都是大片</span>
     </div>
-    <div class="opcal">
+    <div class="opcal" v-if="datas != null">
       <div>
-        <img class="calimg showimg" :src="require('../assets/carousel/'+data[0].pic1)" />
-        <img class="calimg" :src="require('../assets/carousel/'+data[0].pic2)" alt />
-        <img class="calimg" :src="require('../assets/carousel/'+data[0].pic3)" alt />
-        <img class="calimg" :src="require('../assets/carousel/'+data[0].pic4)" alt />
+        <img class="calimg showimg" :src="require('../assets/carousel/'+datas[0].pic1)" />
+        <img class="calimg" :src="require('../assets/carousel/'+datas[0].pic2)" alt />
+        <img class="calimg" :src="require('../assets/carousel/'+datas[0].pic3)" alt />
+        <img class="calimg" :src="require('../assets/carousel/'+datas[0].pic4)" alt />
         <div class="bigtext">
           <p>#古典别墅#</p>
           <p>“金玉其内的奢华别墅</p>
@@ -17,25 +17,25 @@
       </div>
       <div>
         <router-link to="/changxiao">
-          <img :src="require('../assets/carousel/'+ data[0].pic1)" alt />
+          <img :src="require('../assets/carousel/'+ datas[0].pic2)" alt />
           <span class="smtext">低调外景</span>
         </router-link>
       </div>
       <div>
         <router-link to="/changxiao">
-          <img :src="require('../assets/carousel/'+data[0].pic2)" alt />
+          <img :src="require('../assets/carousel/'+datas[0].pic2)" alt />
           <span class="smtext">夜景走廊</span>
         </router-link>
       </div>
       <div>
         <router-link to="/changxiao">
-          <img :src="require('../assets/carousel/'+data[0].pic3)" alt />
+          <img :src="require('../assets/carousel/'+datas[0].pic3)" alt />
           <span class="smtext">广阔天空</span>
         </router-link>
       </div>
       <div>
         <router-link to="/changxiao">
-          <img :src="require('../assets/carousel/'+data[0].pic4)" alt />
+          <img :src="require('../assets/carousel/'+datas[0].pic4)" alt />
           <span class="smtext">温馨夜景</span>
         </router-link>
       </div>
@@ -48,36 +48,34 @@ export default {
   data() {
     return {
       show: 0,
-      data: {}
+      datas: {}
     };
   },
   methods: {
-    calimgfn: function() {
-      setInterval(() => {
-        var imgs = document.getElementsByClassName("calimg");
-        var a = 0;
-        this.show++;
-        if (this.show == 4) {
-          this.show = 0;
-        }
-        a = this.show == 0 ? 3 : this.show - 1;
-
-        imgs[this.show].className += " showimg";
-
-        imgs[a].className = "calimg";
-      }, 3000);
-    }
+    // calimgfn: function() {
+    //   setInterval(() => {
+    //     var imgs = document.getElementsByClassName("calimg");
+    //     var a = 0;
+    //     this.show++;
+    //     if (this.show == 4) {
+    //       this.show = 0;
+    //     }
+    //     // a = this.show == 0 ? 3 : this.show - 1;
+    //     // // imgs[this.show].className += " showimg";
+    //     // imgs[a].className = "calimg";
+    //   }, 3000);
+    // }
   },
   mounted() {
     this.axios.get("/carousel?keywords=" + "index").then(res => {
-      this.data = res.data.results;
+      this.datas = res.data.results;
       // console.log(res.data.results);
       // console.log(this.data);
-      // console.log(this.data[0].pic2);
+      console.log(this.datas[0]);
     });
-    if (this.data) {
-      this.calimgfn();
-    }
+    // if (this.data) {
+    //   // this.calimgfn();
+    // }
   }
 };
 </script>

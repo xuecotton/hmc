@@ -1,18 +1,20 @@
 <template>
   <div class="app">
     <!-- 顶部导航及头像开始-->
+
     <div class="top">
+      <span class="back"></span>
       <span class="title">发现</span>
       <span calss="option" id="citys">
         <select name="北京" class="citys">
           <option value="北京">北京</option>
           <option value="上海">上海</option>
         </select>
-
         <span></span>
       </span>
       <span class="avatar" v-if="isLogin"></span>
     </div>
+
     <!-- 顶部顶部导航及头像开始 -->
     <!-- 轮播图 -->
     <div id="carousel">
@@ -48,7 +50,7 @@ export default {
   components: {
     WaterList
   },
- 
+
   mounted() {
     // 判断登录与否
     if (sessionStorage.getItem("isLogined") != null) {
@@ -62,11 +64,16 @@ export default {
 <style scoped>
 /* 顶部城市选择样式 */
 .top {
+  position: fixed;
+  top: 0px;
   width: 100%;
-  height: 25px;
+  background-color: #fff;
+  height: 45px;
   font-size: 10px;
-  margin-top: 15px;
+
+  z-index: 999;
 }
+
 .title {
   font-size: 20px;
   margin-right: 5px;
@@ -97,6 +104,7 @@ export default {
 .avatar {
   display: inline-block;
   float: right;
+  margin-top: 10px;
   width: 25px;
   height: 25px;
   border-radius: 50%;
@@ -110,11 +118,10 @@ export default {
 .avatar::before {
   content: "";
 }
-
 /* 轮播图 */
 
 #carousel {
-  margin-top: 15px;
+  margin-top: 55px;
   width: 100%;
   height: 125px;
 }

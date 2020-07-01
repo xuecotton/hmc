@@ -1,7 +1,14 @@
 <template>
   <div>
     <!-- 顶部导航栏开始 -->
-
+    <!-- <router-link to="/register">
+            <mt-button icon="back"></mt-button>
+    </router-link>-->
+    <mt-header style="background-color:white">
+      <router-link to="/" slot="left">
+        <mt-button icon="back" style="color:black"></mt-button>
+      </router-link>
+    </mt-header>
     <!-- 顶部导航栏结束 -->
     <!-- 标题区域开始 -->
     <div class="slogan">

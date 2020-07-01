@@ -5,6 +5,7 @@ import index from "../views/index.vue";
 import Details from "../views/Details.vue";
 import Waterfall from "../components/waterfall.vue";
 import changxiao from "../views/changxiao";
+import gongyv from "../views/gongyv.vue";
 //蝎子莱莱详情订单组件
 import Reserve from "../views/Reserve.vue";
 import ReserveT from "../views/ReserveT.vue";
@@ -55,6 +56,7 @@ const routes = [
   },
   {
     path: "/products",
+    name: Products,
     component: Products,
   },
   {
@@ -110,8 +112,8 @@ const routes = [
   },
   {
     path: "/gongyv",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/gongyv.vue"),
+    name: gongyv,
+    component: gongyv,
   },
   {
     path: "/test",

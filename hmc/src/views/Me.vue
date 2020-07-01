@@ -18,7 +18,7 @@
          <!-- 信息列表开始 -->
           <mt-cell title="修改信息" isLink to="/modify"></mt-cell>
           <mt-cell title="更改密码" isLink to="/changepd"></mt-cell>
-          <mt-cell title="退出账户" isLink to=""></mt-cell>
+          <mt-cell title="退出账户" isLink to="/login" ></mt-cell>
 
          <!-- 信息列表结束 -->
          <!-- 底部选项卡开始 -->

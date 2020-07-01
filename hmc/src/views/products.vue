@@ -2,19 +2,18 @@
   <div class="app">
     <div class="allbg"></div>
     <!-- 顶部导航及头像开始-->
-    <mt-title>
-      <div class="top">
-        <span class="title">发现</span>
-        <span calss="option" id="citys">
-          <select name="北京" class="citys">
-            <option value="北京">北京</option>
-            <option value="上海">上海</option>
-          </select>
-          <span></span>
-        </span>
-        <span class="avatar" v-if="isLogin"></span>
-      </div>
-    </mt-title>
+
+    <div class="top">
+      <span class="title">发现</span>
+      <span calss="option" id="citys">
+        <select name="北京" class="citys">
+          <option value="北京">北京</option>
+          <option value="上海">上海</option>
+        </select>
+        <span></span>
+      </span>
+      <span class="avatar" v-if="isLogin"></span>
+    </div>
 
     <!-- 顶部顶部导航及头像开始 -->
 
@@ -76,6 +75,7 @@ export default {
 .app {
   margin-top: -40px;
 }
+/* 头样式 */
 .top {
   position: fixed;
   top: 0px;
@@ -116,6 +116,7 @@ export default {
 .avatar {
   display: inline-block;
   float: right;
+  margin-top: 10px;
   width: 25px;
   height: 25px;
   border-radius: 50%;

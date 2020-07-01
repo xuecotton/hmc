@@ -39,7 +39,7 @@
         <p>邮箱: {{Demail}}</p>
       </div>
       <!-- 继续按钮--跳转到下一个页面 -->
-      <router-link class="d-go" to="/reservet">继续</router-link>
+			<button class="d-go" @click="yuding">继续</button>
     </div>
   </div>
 </template>
@@ -177,11 +177,20 @@ export default {
       oldTime1:'',
       oldTime2:'',
       // 两者相差的毫秒数
-      oldtime:''
+      oldtime:'',
+			userMsg:{
+				name:"",
+				phone:"",
+				startTime:"",
+				allTime:"",
+				isPay:"",
+				allPrice:""
+			}
     }
   },
   methods:{
     start(){
+			console.log(this.ondate);
       this.oldTime1 = (new Date(this.ondate)).getTime(); //得到毫秒数 
       console.log(this.oldTime1); 
     },
@@ -191,8 +200,29 @@ export default {
       this.oldTime2 = (new Date(this.offdate)).getTime(); //得到毫秒数 
       console.log(this.oldTime2); 
       this.oldtime=parseInt(this.oldTime2) - parseInt(this.oldTime1);
-      console.log(new Date(this.oldtime));
-    }
+      console.log(new Date(this.oldtime).getTime() / 24 / 60 / 60 / 1000);
+			this.day = new Date(this.oldtime).getTime() / 24 / 60 / 60 / 1000 ;
+    },
+		
+		// 当用户点击继续后,发送一次ajax请求
+		yuding(){
+			this.userMsg.name=this.Dusername;
+			this.userMsg.phone=this.Dphone;
+			this.userMsg.startTime=this.ondate;
+			this.userMsg.allTime=this.day;
+			this.userMsg.isPay=false;
+			this.userMsg.allPrice=this.dayPrice * this.day;
+			console.log(this.userMsg);
+			
+			this.$router.push({
+				path:"/reservet",
+				query:{
+					userMsg:this.userMsg
+				}
+			})
+			
+		}
+		
   }
 }
 </script>
