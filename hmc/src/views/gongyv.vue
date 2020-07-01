@@ -2,31 +2,25 @@
   <div>
     <div class="allbg"></div>
     <div class="all">
-      <mt-header title="公寓" class="head" fixed>
-        <router-link to="/" slot="left">
-          <mt-button icon="back" style="padding-left:10px"></mt-button>
-        </router-link>
-      </mt-header>
       <div class="listall">
         <table></table>
-        <div class="li" v-for="(v,k) of 8" :key="k">
+        <div class="li" v-for="(item,index) of obj" :key="index">
           <div>
-            <img src="../assets/houseimg/房间0.jpg" alt />
+            <!-- <img :src="require('../assets/houseimg/homes/ '+ item.fengmian)" alt /> -->
           </div>
           <div>
-            <div>绿森公寓</div>
+            <div>{{item.htitle}}</div>
             <div>
-              <img src="../assets/xingxing.png" alt />
-              <img src="../assets/xingxing.png" alt />
-              <img src="../assets/xingxing.png" alt />
+              <img v-for="(i,k) of item.rating" :key="k" src="../assets/xingxing.png" alt />
             </div>
             <div>
-              <img src="../assets/dingwei.png" alt />建设大道250号
+              <img src="../assets/dingwei.png" alt />
+              {{item.haddress}}
             </div>
             <div>
-              <span>$88.0</span>/房间/晚
+              <span>¥{{item.hprice}}</span>/房间/晚
             </div>
-            <div>立减51.0%</div>
+
             <div>已包含所有花费</div>
           </div>
         </div>
@@ -40,8 +34,24 @@
 export default {
   data() {
     return {
-      act: ""
+      act: "",
+      // 存储获取到的信息
+      obj: []
     };
+  },
+  mounted() {
+    this.axios.get("/homelist").then(res => {
+      let result = res.data.results;
+      // console.log(result);
+      result.forEach(item => {
+        let img = [];
+        img = item.himg.split("-");
+        item.himg = img;
+        item.fengmian = img[0];
+      });
+      this.obj = result.slice(0, 4);
+      console.log(this.obj);
+    });
   }
 };
 </script>
@@ -59,13 +69,7 @@ export default {
   position: relative;
   z-index: 10;
 }
-.allbg {
-  background: url(../assets/houseimg/后院驿站/白天外景图.jpg);
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  opacity: 0.5;
-}
+
 .all::before {
   content: "";
   display: table;

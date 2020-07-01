@@ -48,6 +48,7 @@ export default {
   components: {
     WaterList
   },
+ 
   mounted() {
     // 判断登录与否
     if (sessionStorage.getItem("isLogined") != null) {

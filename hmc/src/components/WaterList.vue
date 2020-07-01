@@ -6,23 +6,24 @@
     </div>
     <div id="box">
       <div id="box_item" v-for="(item,index) in obj" :key="index">
-        <router-link to="/article">
+        <div @click="insurance(item.tid)">
           <img class="box_img" :src="require('../assets/article/'+ item.fengmian)" alt />
-        </router-link>
-        <div class="intr">
-          <p class="address">
-            <img src="../assets/images/weizhi.png" alt />北京
-          </p>
 
-          <div class="art_title">
-            <span>{{item.acontent}}</span>
+          <div class="intr">
+            <p class="address">
+              <img src="../assets/images/weizhi.png" alt />北京
+            </p>
+
+            <div class="art_title">
+              <span>{{item.acontent}}</span>
+            </div>
+
+            <p class="author">
+              <span>{{item.author}}</span>
+              <img src="../assets/images/zan_unact.png" alt />
+              <span>{{item.praisenum}}</span>
+            </p>
           </div>
-
-          <p class="author">
-            <span>{{item.author}}</span>
-            <img src="../assets/images/zan_unact.png" alt />
-            <span>{{item.praisenum}}</span>
-          </p>
         </div>
       </div>
     </div>
@@ -37,6 +38,17 @@ export default {
       obj: {},
       akeywords: "北京"
     };
+  },
+  methods: {
+    // 路由传参方法
+    insurance(tid) {
+      this.$router.push({
+        path: "/article",
+        query: {
+          tid: tid
+        }
+      });
+    }
   },
   mounted() {
     this.axios.get("/articles?akeywords=" + this.akeywords).then(res => {

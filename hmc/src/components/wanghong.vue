@@ -6,30 +6,38 @@
     </div>
     <div class="opcal">
       <div>
-        <img class="calimg showimg" src="../assets/houseimg/后院驿站/白天外景图.jpg" alt />
-        <img class="calimg" src="../assets/houseimg/后院驿站/楼梯.jpg" alt />
-        <img class="calimg" src="../assets/houseimg/后院驿站/天空.jpg" alt />
-        <img class="calimg" src="../assets/houseimg/后院驿站/外景图.jpg" alt />
+        <img class="calimg showimg" :src="require('../assets/carousel/'+data[0].pic1)" />
+        <img class="calimg" :src="require('../assets/carousel/'+data[0].pic2)" alt />
+        <img class="calimg" :src="require('../assets/carousel/'+data[0].pic3)" alt />
+        <img class="calimg" :src="require('../assets/carousel/'+data[0].pic4)" alt />
         <div class="bigtext">
           <p>#古典别墅#</p>
           <p>“金玉其内的奢华别墅</p>
         </div>
       </div>
       <div>
-        <img src="../assets/houseimg/后院驿站/白天外景图.jpg" alt />
-        <span class="smtext">低调外景</span>
+        <router-link to="/changxiao">
+          <img :src="require('../assets/carousel/'+ data[0].pic1)" alt />
+          <span class="smtext">低调外景</span>
+        </router-link>
       </div>
       <div>
-        <img src="../assets/houseimg/后院驿站/楼梯.jpg" alt />
-        <span class="smtext">夜景走廊</span>
+        <router-link to="/changxiao">
+          <img :src="require('../assets/carousel/'+data[0].pic2)" alt />
+          <span class="smtext">夜景走廊</span>
+        </router-link>
       </div>
       <div>
-        <img src="../assets/houseimg/后院驿站/天空.jpg" alt />
-        <span class="smtext">广阔天空</span>
+        <router-link to="/changxiao">
+          <img :src="require('../assets/carousel/'+data[0].pic3)" alt />
+          <span class="smtext">广阔天空</span>
+        </router-link>
       </div>
       <div>
-        <img src="../assets/houseimg/后院驿站/外景图.jpg" alt />
-        <span class="smtext">温馨夜景</span>
+        <router-link to="/changxiao">
+          <img :src="require('../assets/carousel/'+data[0].pic4)" alt />
+          <span class="smtext">温馨夜景</span>
+        </router-link>
       </div>
     </div>
   </div>
@@ -61,11 +69,15 @@ export default {
     }
   },
   mounted() {
-    this.calimgfn();
     this.axios.get("/carousel?keywords=" + "index").then(res => {
       this.data = res.data.results;
-      console.log(res.data.results);
+      // console.log(res.data.results);
+      // console.log(this.data);
+      // console.log(this.data[0].pic2);
     });
+    if (this.data) {
+      this.calimgfn();
+    }
   }
 };
 </script>
@@ -134,7 +146,7 @@ export default {
   height: auto;
 }
 .opcal > div:not(:first-child) + div {
-  margin-top: 3px;
+  margin-top: 1px;
 }
 /* 图片中文字样式 */
 .smtext {

@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="index">
-      <carousel></carousel>
+      <carousel name="index"></carousel>
       <inputli></inputli>
       <list></list>
     </div>

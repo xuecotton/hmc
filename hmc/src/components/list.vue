@@ -2,7 +2,7 @@
   <div class="listall">
     <ul>
       <li>
-        <router-link to="/gongyv">
+        <router-link to="/changxiao" @click="myclick(1)">
           <img src="../assets/首页图片/图标蓝色/zufang.png" />
           <p>长租好房</p>
         </router-link>
@@ -16,7 +16,7 @@
       </li>
 
       <li>
-        <router-link to="/">
+        <router-link to="/changxiao">
           <img src="../assets/首页图片/图标蓝色/paizhao.png" />
           <p>实拍美屋</p>
         </router-link>
@@ -30,7 +30,7 @@
       </li>
 
       <li>
-        <router-link to="/">
+        <router-link to="/changxiao">
           <img src="../assets/首页图片/图标蓝色/aiqingyuehui.png" />
           <p>浪漫约会</p>
         </router-link>
@@ -38,6 +38,24 @@
     </ul>
   </div>
 </template>
+<script>
+export default {
+  // data() {
+  //   return {
+  //     namesss: ["长租好房", "品牌保证", "实拍美屋", "评分最高", "浪漫约会"]
+  //   };
+  // },
+  // methods: {
+  //   names(i) {
+  //     return this.namesss[i - 1];
+  //   },
+  //   myclick: function(i) {
+  //     //向公共实例传入数据
+  //     this.$emit("passval", this.names(i));
+  //   }
+  // }
+};
+</script>
 <style scoped>
 /* 所有样式 */
 .listall {

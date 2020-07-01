@@ -4,6 +4,7 @@ import VueRouter from "vue-router";
 import index from "../views/index.vue";
 import Details from "../views/Details.vue";
 import Waterfall from "../components/waterfall.vue";
+import changxiao from "../views/changxiao";
 //蝎子莱莱详情订单组件
 import Reserve from "../views/Reserve.vue";
 import ReserveT from "../views/ReserveT.vue";
@@ -33,6 +34,7 @@ const routes = [
   },
   {
     path: "/article",
+    name: Article,
     component: Article,
   },
   {
@@ -81,6 +83,7 @@ const routes = [
   },
   {
     path: "/details",
+    name: Details,
     component: Details,
   },
   {
@@ -94,6 +97,10 @@ const routes = [
   {
     path: "/pay",
     component: Pay,
+  },
+  {
+    path: "/changxiao",
+    component: changxiao,
   },
   {
     path: "/about",
@@ -110,11 +117,6 @@ const routes = [
     path: "/test",
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/datepicker.vue"),
-  },
-  {
-    path: "/changxiao",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/changxiao.vue"),
   },
 ];
 

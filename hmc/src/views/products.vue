@@ -1,5 +1,6 @@
 <template>
   <div class="app">
+    <div class="allbg"></div>
     <!-- 顶部导航及头像开始-->
     <mt-title>
       <div class="top">
@@ -9,7 +10,6 @@
             <option value="北京">北京</option>
             <option value="上海">上海</option>
           </select>
-
           <span></span>
         </span>
         <span class="avatar" v-if="isLogin"></span>
@@ -44,12 +44,12 @@
     <!-- 轮播图 -->
     <wanghong class="wht"></wanghong>
     <!-- 轮播图结束 -->
-    <!-- 瀑布流 -->
-    <ProductWater></ProductWater>
+    <!-- 商品列表 -->
+    <gongyv></gongyv>
   </div>
 </template>
 // <script>
-import ProductWater from "../components/ProductWater";
+import gongyv from "./gongyv";
 import wanghong from "../components/wanghong";
 export default {
   data() {
@@ -58,7 +58,7 @@ export default {
     };
   },
   components: {
-    ProductWater,
+    gongyv,
     wanghong
   },
   mounted() {
@@ -73,11 +73,18 @@ export default {
 
 <style scoped>
 /* 顶部城市选择样式 */
+.app {
+  margin-top: -40px;
+}
 .top {
+  position: fixed;
+  top: 0px;
   width: 100%;
-  height: 25px;
+  background-color: #fff;
+  height: 45px;
   font-size: 10px;
-  margin-top: 15px;
+
+  z-index: 999;
 }
 .title {
   font-size: 20px;
@@ -124,7 +131,7 @@ export default {
 }
 /* 轮播图 */
 .wht {
-  margin-top: 0;
+  margin-top: 65px;
 }
 /* 中间导航 */
 #navbar {
@@ -157,5 +164,16 @@ export default {
 /* 导航栏激活后样式 */
 .selected {
   border-top: 2px solid yellow;
+}
+
+/* 背景图 */
+.allbg {
+  top: 45px;
+  background: url(../assets/houseimg/后院驿站/白天外景图.jpg);
+  background-size: contain;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  opacity: 0.2;
 }
 </style>

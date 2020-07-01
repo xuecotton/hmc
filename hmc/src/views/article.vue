@@ -9,9 +9,8 @@
         :show-indicators="false"
         @change="swipeChange"
       >
-        <mt-swipe-item id="carousel_item" v-for="(item,index) in img" :key="index">
-          <img :src="require('../assets/images/' + item)" alt />
-          {{item}}
+        <mt-swipe-item id="carousel_item" v-for="(item,index) in obj[0].apic" :key="index">
+          <img :src="require('../assets/article/' + item)" alt />
         </mt-swipe-item>
       </mt-swipe>
     </div>
@@ -23,25 +22,25 @@
       <div class="mian_content">
         <div class="author">
           <span class="author_avatar"></span>
-          <span class="author_name">蟑螂恶霸</span>
+          <span class="author_name">{{obj[0].author}}</span>
         </div>
         <p class="address">
-          <img src="../assets/images/weizhi.png" alt />北京
+          <img src="../assets/images/weizhi.png" alt />
+          {{obj[0].akeywords}}
         </p>
         <div class="desc" id="readText">
-          <p>达拉崩吧斑得贝迪卜多比鲁翁</p>
+          <p>{{obj[0].acontent.slice(0,10)}}</p>
           <br />
-          <p>很久很久以前,巨龙突然出现,带来灾难带走了公主又消失不见,王国十分危险,世间谁最勇敢,一位勇者赶来,大声喊:</p>
-          <p>我要带上最好的剑,翻过最高的山,闯进最深的森林,把公主带回到面前。</p>
-          <p>年轻人想了想，他说陛下我叫，达拉崩吧斑得贝迪卜多比鲁翁国王：再说一次少年：达拉崩巴斑得贝迪卜多比鲁翁国王：是不是，达拉崩吧斑得贝迪卜多比鲁翁少年：对对，达拉崩巴斑得贝迪卜多比鲁翁旁白：英雄达拉崩吧，骑上最快的马带着大家的希望从城堡里出发战胜怪兽来袭，获得十二金币无数伤痕见证，他慢慢升级小女孩：偏远美丽村庄，打开所有宝箱一路风霜伴随指引前路的圣月光闯入一座山洞，公主和可怕的巨龙英雄拔出宝剑，巨龙说巨龙：我是，昆图库塔卡提考特苏瓦西拉松少年：再来一次巨龙：昆图库塔卡提考特苏瓦西拉松少年：是不是，昆特牌提琴，烤蛋挞，苏打，马拉松巨龙：不对，是昆图库塔卡提考特苏瓦西拉松旁白：于是少年：达拉崩巴斑得贝迪卜多比鲁翁旁白：砍向巨龙：昆图库塔卡提考特苏瓦西拉松旁白：然后巨龙：昆图库塔卡提考特苏瓦西拉松旁白：咬了少年：达拉崩吧斑得贝迪卜多比鲁翁旁白：最后达拉崩巴斑得贝迪卜多比鲁翁他战胜了巨龙：昆图库塔卡提考特苏瓦西拉松旁白：救出了，公主米娅莫拉苏娜丹妮谢莉红回到了，蒙达鲁克硫斯伯古比奇巴勒城国王听说达拉崩巴斑得贝迪卜多比鲁翁他打败了昆图库塔卡提考特苏瓦西拉松就把，公主米娅莫拉苏娜丹妮谢莉红嫁给达拉崩吧斑得贝迪卜多比鲁翁啦啦，达拉崩巴，公主米娅幸福得像个童话他们生下一个孩子，也在天天渐渐长大为了避免以后麻烦，孩子称作王浩然他的全名十分难念，要念你来念吧</p>
+          <p>{{obj[0].acontent}}</p>
         </div>
         <span id="readMore" @click="readMore()">查看更多</span>
-        <div class="comment">
+
+        <div class="comment" v-if="this.overs" @click="insurance(obj[0].cuid)">
           <img class="comment_img" src="../assets/images/fall2.jpg" alt />
           <div class="comment_intr">
-            <div class="intr_title">桃花坞，桃花庵</div>
-            <span class="intr_desc">西安·1居1床2人·24平米</span>
-            <span class="price">¥230</span>
+            <div class="intr_title">{{product[0].htitle}}</div>
+            <span class="intr_desc">{{product[0].htype}}</span>
+            <span class="price">¥{{product[0].hprice}}</span>
           </div>
         </div>
         <div class="date">发布于2020-06-11</div>
@@ -59,6 +58,9 @@
 #carousel_list {
   width: 100%;
 }
+#carousel_item > img {
+  height: 300px;
+}
 /* 图片页标 */
 .img_index {
   position: relative;
@@ -69,7 +71,7 @@
   display: block;
   position: absolute;
   right: 5px;
-  top: -30px;
+  top: -45px;
   text-align: center;
   line-height: 25px;
   background-color: rgba(200, 200, 200, 0.2);
@@ -154,19 +156,24 @@
   border-radius: 5px 0 0 5px;
 }
 .comment_intr {
+  overflow: hidden;
   flex: 2;
   display: flex;
   flex-flow: column;
   margin-left: 10px;
 }
-.intr_title,
+
 .intr_desc,
 .price {
-  margin: 8px 0;
+  margin-top: 8px;
 }
 .intr_title {
+  width: 250px;
   font-size: 20px;
   color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .intr_desc {
   font-size: 12px;
@@ -186,10 +193,27 @@ export default {
   data() {
     return {
       activeIndex: 1,
+      // 存储文章详情
+      obj: {},
+      // 存储推荐商品
+      product: [],
+      // 储存推荐商品的id
+
+      overs: false,
       img: ["swipe01.jpg", "swipe02.jpg", "swipe03.jpg", "swipe04.jpg"]
     };
   },
   methods: {
+    // 路由传参数函数
+    // 路由传参方法
+    insurance(id) {
+      this.$router.push({
+        path: "/details",
+        query: {
+          id: id
+        }
+      });
+    },
     //   获取轮播图下标的方法
     swipeChange() {
       this.activeIndex = this.$refs.swipe.index + 1;
@@ -203,7 +227,30 @@ export default {
       //改变文本显示高度
       readTxt.style.height = "auto";
       MoreEle.style.display = "none";
+      this.axios.get("/desc?id=" + this.obj[0].cuid).then(res => {
+        this.product = res.data.desc;
+        console.log(this.product);
+        // 请求完成:
+        this.overs = true;
+      });
     }
+    // 获取推荐商品方法
+  },
+  mounted() {
+    // 获取到了上个组件传来的id  console.log(this.$route.query.tid);
+    let tid = this.$route.query.tid;
+    // 发送请求
+    this.axios.get("/article?id=" + tid).then(res => {
+      let result = res.data.results;
+      //   console.log(result);
+      result.forEach(item => {
+        let img = [];
+        img = item.apic.split("-");
+        item.apic = img;
+      });
+      this.obj = result;
+      console.log(this.obj);
+    });
   }
 };
 </script>

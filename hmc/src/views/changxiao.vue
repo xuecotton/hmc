@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 头部导航栏 -->
-    <mt-header title="民宿畅销榜" class="cxhead">
+    <mt-header title="盘点" class="cxhead">
       <router-link slot="left" to="/">
         <mt-button icon="back" type="primary"></mt-button>
       </router-link>
@@ -23,48 +23,30 @@
     </div>
     <!-- 列表 -->
     <div class="houseli">
-      <div class="li">
+      <div class="li" v-for="(item,index) in obj" :key="index">
         <div class="item">
           <div class="dingwei">
             <div class="item-img">
-              <img src="../assets/首页图片/房间样式/美国教堂/外景.jpg" alt />
-              <img src="../assets/首页图片/房间样式/美国教堂/客厅.jpg" alt />
-              <img src="../assets/首页图片/房间样式/美国教堂/远景.jpeg" alt />
+              <img
+                v-for="(item,index) in item.himg"
+                :key="index"
+                :src="require('../assets/houseimg/homes/' + item)"
+              />
             </div>
             <div class="item-icon">
-              <span>￥359</span>
+              <span>¥{{item.hprice}}</span>
               <span>
                 <img src="../assets/tabbar/灰色/aixin1.png" alt />
               </span>
             </div>
           </div>
           <div class="item-p">
-            <span>北京西郊美式教堂别墅房</span>
-            <span>5室2厅&emsp;宜居8人</span>
+            <span>{{item.htitle}}</span>
+            <span>{{item.htype}}&emsp;宜居2人</span>
           </div>
         </div>
       </div>
-      <div class="li">
-        <div class="item">
-          <div class="dingwei">
-            <div class="item-img">
-              <img src="../assets/首页图片/房间样式/美国教堂/外景.jpg" alt />
-              <img src="../assets/首页图片/房间样式/美国教堂/客厅.jpg" alt />
-              <img src="../assets/首页图片/房间样式/美国教堂/远景.jpeg" alt />
-            </div>
-            <div class="item-icon">
-              <span>￥359</span>
-              <span>
-                <img src="../assets/tabbar/灰色/aixin1.png" alt />
-              </span>
-            </div>
-          </div>
-          <div class="item-p">
-            <span>北京西郊美式教堂别墅房</span>
-            <span>5室2厅&emsp;宜居8人</span>
-          </div>
-        </div>
-      </div>
+
       <div class="showbottom"></div>
     </div>
   </div>
@@ -75,8 +57,26 @@
 export default {
   data() {
     return {
-      act: ""
+      act: "",
+      obj: {}
     };
+  },
+  mounted() {
+    this.axios.get("/homelist").then(res => {
+      let result = res.data.results;
+      //   console.log(result);
+      result.forEach(item => {
+        let img = [];
+        img = item.himg.split("-");
+        item.himg = img;
+      });
+      this.obj = result.slice(0, 3);
+      console.log(result);
+      console.log(this.obj);
+    });
+    // this.$on("passval", function(value) {
+    //   alert(value);
+    // });
   }
 };
 </script>

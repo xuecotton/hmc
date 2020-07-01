@@ -94,7 +94,7 @@ server.post("/login", (req, res) => {
 
 // 获取商品列表信息路由
 server.get("/homelist", (req, res) => {
-  var sql = "SELECT * FROM home inner join images on hid=pid";
+  var sql = "SELECT * FROM home ";
   pool.query(sql, (err, results) => {
     if (err) throw err;
     res.send({ message: "查询成功", code: 200, results: results });
