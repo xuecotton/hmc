@@ -9,7 +9,7 @@
       </router-link>
     </mt-header>
     <!--详情图片 -->
-    <div class="img">
+    <div class="img" v-if="isOver">
       <mt-swipe
         id="carousel_list"
         ref="swipe"
@@ -17,38 +17,38 @@
         :show-indicators="false"
         @change="swipeChange"
       >
-        <mt-swipe-item id="carousel_item" v-for="(item,index) in obj[0].apic" :key="index">
+        <mt-swipe-item id="carousel_item" v-for="(item, index) in obj[0].apic" :key="index">
           <img :src="require('../assets/article/' + item)" alt />
         </mt-swipe-item>
       </mt-swipe>
     </div>
     <div class="img_index">
-      <span class="index">{{activeIndex}}/{{img.length}}</span>
+      <span class="index">{{ activeIndex }}/{{ img.length }}</span>
     </div>
-    <div class="main">
+    <div class="main" v-if="isOver">
       <!-- 作者信息 -->
       <div class="mian_content">
         <div class="author">
           <span class="author_avatar"></span>
-          <span class="author_name">{{obj[0].author}}</span>
+          <span class="author_name">{{ obj[0].author }}</span>
         </div>
         <p class="address">
           <img src="../assets/images/weizhi.png" alt />
-          {{obj[0].akeywords}}
+          {{ obj[0].akeywords }}
         </p>
         <div class="desc" id="readText">
-          <p>{{obj[0].acontent.slice(0,10)}}</p>
+          <p>{{ obj[0].acontent.slice(0, 10) }}</p>
           <br />
-          <p>{{obj[0].acontent}}</p>
+          <p>{{ obj[0].acontent }}</p>
         </div>
         <span id="readMore" @click="readMore()">查看更多</span>
 
         <div class="comment" v-if="this.overs" @click="insurance(obj[0].cuid)">
           <img class="comment_img" src="../assets/images/fall2.jpg" alt />
           <div class="comment_intr">
-            <div class="intr_title">{{product[0].htitle}}</div>
-            <span class="intr_desc">{{product[0].htype}}</span>
-            <span class="price">¥{{product[0].hprice}}</span>
+            <div class="intr_title">{{ product[0].htitle }}</div>
+            <span class="intr_desc">{{ product[0].htype }}</span>
+            <span class="price">¥{{ product[0].hprice }}</span>
           </div>
         </div>
         <div class="date">发布于2020-06-11</div>
@@ -206,6 +206,8 @@
 export default {
   data() {
     return {
+      // 异步请求发送标志
+      isOver: false,
       activeIndex: 1,
       // 存储文章详情
       obj: {},
@@ -243,7 +245,7 @@ export default {
       MoreEle.style.display = "none";
       this.axios.get("/desc?id=" + this.obj[0].cuid).then(res => {
         this.product = res.data.desc;
-        console.log(this.product);
+        // console.log(this.product);
         // 请求完成:
         this.overs = true;
       });
@@ -255,6 +257,8 @@ export default {
     let tid = this.$route.query.tid;
     // 发送请求
     this.axios.get("/article?id=" + tid).then(res => {
+      // 发送成功标志
+      this.isOver = true;
       let result = res.data.results;
       //   console.log(result);
       result.forEach(item => {
@@ -263,7 +267,7 @@ export default {
         item.apic = img;
       });
       this.obj = result;
-      console.log(this.obj);
+      // console.log(this.obj);
     });
   }
 };

@@ -3,7 +3,7 @@
     <!-- 标题栏 -->
 
     <div class="top">
-      <span class="back"></span>
+      <span class="back" v-on:click="back"></span>
       <span class="title">发现</span>
       <span calss="option" id="citys">
         <select name="北京" class="citys">
@@ -73,10 +73,14 @@ export default {
         item.fengmian = img[0];
       });
       this.obj = result.slice(0, 4);
-      console.log(this.obj);
+      // console.log(this.obj);
     });
   },
   methods: {
+    // 返回上一页
+    back() {
+      this.$router.go(-1); //返回上一层
+    },
     // 路由跳转并传参
     insurance(id) {
       this.$router.push({

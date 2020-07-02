@@ -1,17 +1,15 @@
 <template>
-  <div id="details">
+  <div id="details" v-if="isOver">
     <!-- 顶部导航开始 -->
     <mt-header class="d-header" fixed>
-      <router-link slot="left" to="/" class="d-back">
-        <mt-button icon="back"></mt-button>
-      </router-link>
+      <mt-button icon="back" slot="left" class="back" v-show="isShow" v-on:click="back"></mt-button>
     </mt-header>
     <!-- 顶部导航结束 -->
     <!-- 轮播图开始 -->
     <mt-swipe ref="swipe" :auto="4000" @change="handleChange" class="d-mt-swipe">
       <mt-swipe-item v-for="(item,index) in swipeImages" :key="index">
         <router-link to>
-          <img :src="require('../assets/images/details/'+ hid +'/'+ item )" alt />
+          <img :src="require('../assets/houseimg/homes/'+ item )" alt />
         </router-link>
       </mt-swipe-item>
     </mt-swipe>
@@ -22,7 +20,7 @@
     <!-- 轮播图下方标题-->
     <div class="d-title-box">
       <h1 class="d-title">{{desc.haddress}}</h1>
-      <h1 class="d-title">{{desc.hcity}}</h1>
+      <h3 class="d-title2">{{desc.hcity}}</h3>
       <!-- 打分状况 -->
       <div class="star">
         <ul class="star_ul">
@@ -168,6 +166,10 @@
 export default {
   data() {
     return {
+      // 返回键的显示
+      isShow: true,
+      // 请求完成标志
+      isOver: false,
       swipeImages: [],
       Sindex: 1,
       desc: "",
@@ -175,6 +177,10 @@ export default {
     };
   },
   methods: {
+    // 返回上一页方法
+    back() {
+      this.$router.go(-1); //返回上一层
+    },
     handleChange() {
       this.Sindex = this.$refs.swipe.index + 1;
       // console.log(this.swipeImages.length);
@@ -191,27 +197,35 @@ export default {
   },
   mounted() {
     // 获取地址栏传入的ID
-    // var id = this.$route.query.id;
-    var id = 9004;
+    var id = this.$route.query.id;
+    //var id = 9004;
     // console.log(id)
     this.axios.get("/desc?id=" + id).then(res => {
-      // console.log(res.data.desc[0].hid);
+      // 请求完成.
+      this.isOver = true;
+      // console.log(res.data.desc[0]);
       this.desc = res.data.desc[0];
       // console.log(this.desc.himg);
       this.swipeImages = this.desc.himg.split("-");
-      console.log(this.swipeImages);
+      // console.log(this.swipeImages);
       this.hid = this.desc.hid;
-      console.log(this.swipeImages);
-      console.log(this.hid);
-      console.log(
-        "../assets/images/details/" + this.hid + "/" + this.swipeImages[0]
-      );
+      // console.log(this.swipeImages);
+      // console.log(this.hid);
+      //  console.log(
+      //   "../assets/images/details/" + this.hid + "/" + this.swipeImages[0]
+      // );
     });
   }
 };
 </script>
 
+
 <style scoped>
+/* 返回按钮 */
+.back {
+  margin-left: 15px;
+  background-color: #aaa;
+}
 .details {
   position: relative;
 }
@@ -254,7 +268,12 @@ export default {
   padding: 15px 15px;
 }
 .d-title {
-  font-size: 32px;
+  font-size: 28px;
+  color: #434157;
+  font-weight: bold;
+}
+.d-title2 {
+  font-size: 16;
   color: #434157;
   font-weight: bold;
 }

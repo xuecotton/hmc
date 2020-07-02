@@ -20,18 +20,22 @@
       <mt-tab-item id="home">
         <img id="bug1img" src="../assets/tabbar/蓝色/fangzi.png" alt slot="icon" v-if="act=='home'" />
         <img src="../assets/tabbar/灰色/fangzi.png" alt slot="icon" v-else />
+        主页
       </mt-tab-item>
       <mt-tab-item id="aixin">
         <img src="../assets/tabbar/蓝色/aixin1.png" alt slot="icon" v-if="act=='aixin'" />
         <img src="../assets/tabbar/灰色/aixin1.png" alt slot="icon" v-else />
+        喜欢
       </mt-tab-item>
       <mt-tab-item id="sousuo">
         <img src="../assets/tabbar/蓝色/sousuo.png" alt slot="icon" v-if="act=='sousuo'" />
         <img src="../assets/tabbar/灰色/sousuo.png" alt slot="icon" v-else />
+        发现
       </mt-tab-item>
       <mt-tab-item id="user">
         <img src="../assets/tabbar/蓝色/user.png" alt slot="icon" v-if="act=='user'" />
         <img src="../assets/tabbar/灰色/user.png" alt slot="icon" v-else />
+        用户
       </mt-tab-item>
     </mt-tabbar>
   </div>

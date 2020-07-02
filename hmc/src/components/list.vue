@@ -1,50 +1,49 @@
 <template>
   <div class="listall">
     <ul>
-      <li>
-        <router-link to="/changxiao" @click="myclick(1)">
-          <img src="../assets/首页图片/图标蓝色/zufang.png" />
-          <p>长租好房</p>
-        </router-link>
+      <li @click="insurance(0)">
+        <img src="../assets/首页图片/图标蓝色/zufang.png" />
+        <p>长租好房</p>
       </li>
 
-      <li>
-        <router-link to="/changxiao">
-          <img src="../assets/首页图片/图标蓝色/medal.png" />
-          <p>品牌保证</p>
-        </router-link>
+      <li @click="insurance(1)">
+        <img src="../assets/首页图片/图标蓝色/medal.png" />
+        <p>品牌保证</p>
       </li>
 
-      <li>
-        <router-link to="/changxiao">
-          <img src="../assets/首页图片/图标蓝色/paizhao.png" />
-          <p>实拍美屋</p>
-        </router-link>
+      <li @click="insurance(2)">
+        <img src="../assets/首页图片/图标蓝色/paizhao.png" />
+        <p>实拍美屋</p>
       </li>
 
-      <li>
-        <router-link to="/changxiao">
-          <img src="../assets/首页图片/图标蓝色/jiangpai.png" />
-          <p>评分最高</p>
-        </router-link>
+      <li @click="insurance(3)">
+        <img src="../assets/首页图片/图标蓝色/jiangpai.png" />
+        <p>评分最高</p>
       </li>
 
-      <li>
-        <router-link to="/changxiao">
-          <img src="../assets/首页图片/图标蓝色/aiqingyuehui.png" />
-          <p>浪漫约会</p>
-        </router-link>
+      <li @click="insurance(4)">
+        <img src="../assets/首页图片/图标蓝色/aiqingyuehui.png" />
+        <p>浪漫约会</p>
       </li>
     </ul>
   </div>
 </template>
 <script>
 export default {
-  // data() {
-  //   return {
-  //     namesss: ["长租好房", "品牌保证", "实拍美屋", "评分最高", "浪漫约会"]
-  //   };
-  // },
+  data() {
+    return {};
+  },
+  methods: {
+    // 路由传参方法
+    insurance(keys) {
+      this.$router.push({
+        path: "/changxiao",
+        query: {
+          keys: keys
+        }
+      });
+    }
+  }
   // methods: {
   //   names(i) {
   //     return this.namesss[i - 1];

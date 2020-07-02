@@ -13,7 +13,7 @@
     <div class="bgimg">
       <div>
         <img src="../assets/首页图片/房间样式/古典.jpg" alt />
-        <span>畅销榜</span>
+        <span>{{keys}}</span>
         <img src="../assets/首页图片/图标灰色/aixin.png" alt />
       </div>
     </div>
@@ -57,6 +57,9 @@
 export default {
   data() {
     return {
+      // 接受传来的标签参数
+      keys: "",
+      namesss: ["长租好房", "品牌保证", "实拍美屋", "评分最高", "浪漫约会"],
       act: "",
       obj: {}
     };
@@ -73,6 +76,10 @@ export default {
     }
   },
   mounted() {
+    // 接受传递的参数,放到data中
+    // console.log(this.$route.query.keys);
+    this.keys = this.namesss[this.$route.query.keys];
+
     this.axios.get("/homelist").then(res => {
       let result = res.data.results;
       //   console.log(result);
@@ -82,8 +89,8 @@ export default {
         item.himg = img;
       });
       this.obj = result.slice(0, 3);
-      console.log(result);
-      console.log(this.obj);
+      // console.log(result);
+      // console.log(this.obj);
     });
     // this.$on("passval", function(value) {
     //   alert(value);
@@ -119,6 +126,7 @@ export default {
 }
 /* 顶部图片字体样式 */
 .bgimg span {
+  width: 220px;
   position: absolute;
   z-index: 10;
   top: 50%;

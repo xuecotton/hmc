@@ -61,7 +61,7 @@ export default {
         item.fengmian = img[0];
       });
       this.obj = result;
-      console.log(result);
+      // console.log(result);
     });
   }
 };

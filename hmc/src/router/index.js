@@ -56,7 +56,7 @@ const routes = [
   },
   {
     path: "/products",
-    name: Products,
+
     component: Products,
   },
   {
@@ -85,7 +85,10 @@ const routes = [
   },
   {
     path: "/details",
-    name: Details,
+
+    meta: {
+      keepAlive: true, //该字段表示该页面需要缓存
+    },
     component: Details,
   },
   {
@@ -102,17 +105,13 @@ const routes = [
   },
   {
     path: "/changxiao",
+
     component: changxiao,
   },
-  {
-    path: "/about",
-    name: "About",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
-  },
+
   {
     path: "/gongyv",
-    name: gongyv,
+
     component: gongyv,
   },
   {

@@ -4,7 +4,7 @@
       <span>网红美宿</span>
       <span>随手一拍都是大片</span>
     </div>
-    <div class="opcal" v-if="datas != null">
+    <div class="opcal" v-if="isOver">
       <div>
         <img class="calimg showimg" :src="require('../assets/carousel/'+datas[0].pic1)" />
         <img class="calimg" :src="require('../assets/carousel/'+datas[0].pic2)" alt />
@@ -48,7 +48,8 @@ export default {
   data() {
     return {
       show: 0,
-      datas: {}
+      datas: [],
+      isOver: false
     };
   },
   methods: {
@@ -71,7 +72,9 @@ export default {
       this.datas = res.data.results;
       // console.log(res.data.results);
       // console.log(this.data);
-      console.log(this.datas[0]);
+      // 发送成功标志
+      this.isOver = true;
+      // console.log(this.datas);
     });
     // if (this.data) {
     //   // this.calimgfn();
