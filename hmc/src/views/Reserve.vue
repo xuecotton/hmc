@@ -1,8 +1,8 @@
 <template>
   <div class="d-box">
     <mt-header class="d-header" title="在线预订">
-      <router-link to="details" slot="left">
-        <mt-button icon="back"></mt-button>
+      <router-link to slot="left">
+        <mt-button icon="back" v-on:click="back"></mt-button>
       </router-link>
       <img src="../assets/images/yuding.png" slot="right" />
     </mt-header>
@@ -190,6 +190,10 @@ export default {
     };
   },
   methods: {
+    // 返回上一页方法
+    back() {
+      this.$router.go(-1); //返回上一层
+    },
     start() {
       console.log(this.ondate);
       this.oldTime1 = new Date(this.ondate).getTime(); //得到毫秒数

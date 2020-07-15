@@ -3,8 +3,8 @@
     <div class="index">
       <carousel name="index"></carousel>
       <inputli></inputli>
-      <list></list>
     </div>
+    <list class="list"></list>
     <wanghong></wanghong>
     <keep-alive>
       <WaterList></WaterList>
@@ -32,5 +32,9 @@ export default {
 </script>
 <style scoped>
 .index {
+  height: 350px;
+  z-index: -1;
+}
+.list {
 }
 </style>

@@ -107,6 +107,9 @@ export default {
 .cxhead {
   background-color: white;
   color: black;
+  position: fixed;
+  width: 100%;
+  z-index: 9999;
 }
 .mint-header-button {
   color: black;

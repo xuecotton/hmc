@@ -83,14 +83,14 @@ export default {
       // this.$refs.pickerData.close() ; // 关闭
     },
     handleConfirm(val) {
-      console.log(val, this.pickerVisible);
+      // console.log(val, this.pickerVisible);
       this.time = val;
     },
     start() {
-      console.log(this.starttime);
+      // console.log(this.starttime);
     },
     end() {
-      console.log(this.endtime);
+      // console.log(this.endtime);
     }
   }
 };
@@ -113,7 +113,7 @@ export default {
     rgba(255, 255, 255, 1),
     rgba(255, 255, 255, 0.05)
   );
-  height: 250px;
+  height: 200px;
   position: relative;
   top: -130px;
   overflow: hidden;
